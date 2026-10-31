@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Reading Intensive Test - Ms Lê Hằng English</title>
+  <!-- Google Fonts: Nunito & Quicksand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Nunito', 'Quicksand', 'sans-serif'],
+          },
+          colors: {
+            brandGreen: '#00D26A',
+            brandRed: '#FF4757',
+            brandPurple: '#8854C0',
+            brandYellow: '#FDCB6E',
+            brandTeal: '#00C9A7',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Dynamic Pastel/Neon Gradient Background Animation */
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body {
+      font-family: 'Nunito', 'Quicksand', sans-serif;
+      background: linear-gradient(-45deg, #f3e7ff, #fff3d1, #d4fcf4, #ffdde4, #e5e0ff);
+      background-size: 400% 400%;
+      animation: gradientFlow 16s ease infinite;
+      min-height: 100vh;
+      color: #1e293b;
+      overflow-x: hidden;
+    }
+
+    /* Floating Cute SVG Pattern (Stars, Flowers, Fruits, Clouds, Kittens) */
+    .floating-svg-pattern {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill-opacity='0.12'%3E%3C!-- Star --%3E%3Cpath fill='%238854C0' d='M30 15 l4 9 10 1 -7 7 2 10 -9 -5 -9 5 2 -10 -7 -7 10 -1 z'/%3E%3C!-- Flower --%3E%3Ccircle cx='120' cy='35' r='6' fill='%23FF4757'/%3E%3Ccircle cx='120' cy='25' r='5' fill='%23FDCB6E'/%3E%3Ccircle cx='120' cy='45' r='5' fill='%23FDCB6E'/%3E%3Ccircle cx='110' cy='35' r='5' fill='%23FDCB6E'/%3E%3Ccircle cx='130' cy='35' r='5' fill='%23FDCB6E'/%3E%3C!-- Cloud --%3E%3Cpath fill='%2300C9A7' d='M25 115 a10 10 0 0 1 18 -5 a12 12 0 0 1 22 5 a8 8 0 0 1 0 16 h-40 a8 8 0 0 1 0 -16 z'/%3E%3C!-- Cute Kitten Silhouette --%3E%3Cpath fill='%238854C0' d='M110 110 l4 -9 l6 5 h10 l6 -5 l4 9 a14 14 0 1 1 -30 0 z'/%3E%3C/g%3E%3C/svg%3E");
+      animation: floatUp 40s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { background-position: 0 0; }
+      100% { background-position: 320px -640px; }
+    }
+
+    /* 3D Gamification Buttons */
+    .btn-3d {
+      border-radius: 16px;
+      transition: all 0.16s cubic-bezier(0.34, 1.56, 0.64, 1);
+      user-select: none;
+    }
+    .btn-3d:hover:not(:disabled) {
+      transform: translateY(-2px) scale(1.02);
+    }
+    .btn-3d:active:not(:disabled) {
+      transform: translateY(2px) scale(0.99);
+    }
+
+    /* 2x2 Option Choice Button (Screenshot style) */
+    .choice-card {
+      background: #ffffff;
+      border: 2.5px solid #e2e8f0;
+      border-radius: 16px;
+      box-shadow: 0 4px 0 #cbd5e1;
+      transition: all 0.18s ease;
+      cursor: pointer;
+    }
+    .choice-card:hover:not(.locked) {
+      border-color: #8854C0;
+      background: #faf5ff;
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 6px 0 #d8b4fe;
+    }
+    .choice-card.correct-choice {
+      background-color: #ecfdf5 !important;
+      border-color: #00D26A !important;
+      box-shadow: 0 4px 0 #00a854 !important;
+      color: #065f46 !important;
+    }
+    .choice-card.wrong-choice {
+      background-color: #fff1f2 !important;
+      border-color: #FF4757 !important;
+      box-shadow: 0 4px 0 #e11d48 !important;
+      color: #be123c !important;
+      animation: shakeAnim 0.45s ease;
+    }
+
+    @keyframes shakeAnim {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    /* Explanation Box matching user's screenshot */
+    .explanation-box {
+      border: 2px dashed #8854C0;
+      border-radius: 18px;
+      background-color: #ffffff;
+      padding: 18px;
+      margin-top: 14px;
+      box-shadow: 0 8px 25px rgba(136, 84, 192, 0.08);
+    }
+    .step1-box {
+      background-color: #fffbeb;
+      border-left: 5px solid #f59e0b;
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .step3-box {
+      background-color: #ecfdf5;
+      border: 1.5px solid #a7f3d0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: #065f46;
+    }
+    .step4-box {
+      background-color: #fff1f2;
+      border: 1.5px solid #fecdd3;
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: #9f1239;
+    }
+
+    /* Pastel Purple Highlighting */
+    .pastel-highlight {
+      background-color: #b57edc !important;
+      color: #ffffff !important;
+      padding: 1px 5px;
+      border-radius: 5px;
+      font-weight: 700;
+      box-shadow: 0 1px 3px rgba(136, 84, 192, 0.3);
+    }
+
+    /* Evidence Locate Pulse Effect */
+    @keyframes evidencePulse {
+      0% { background-color: #fef08a; box-shadow: 0 0 0 4px #facc15; }
+      50% { background-color: #fde047; box-shadow: 0 0 18px 6px #eab308; }
+      100% { background-color: #fef9c3; box-shadow: 0 0 0 2px #fde047; }
+    }
+    .evidence-active {
+      animation: evidencePulse 2.4s ease-in-out forwards;
+      border-radius: 6px;
+      padding: 2px 4px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    /* Custom Scrollbars */
+    .split-scroll::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    .split-scroll::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 10px;
+    }
+    .split-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 10px;
+    }
+    .split-scroll::-webkit-scrollbar-thumb:hover {
+      background: #8854C0;
+    }
+
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body class="p-2 sm:p-3 md:p-4">
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Floating Cute Pattern -->
+  <div class="floating-svg-pattern"></div>
+
+  <!-- Main Wrapper -->
+  <div class="relative z-10 max-w-[1440px] mx-auto flex flex-col">
+
+    <!-- 1. COMPACT BRANDING & PROMO HEADER -->
+    <header class="bg-white/95 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-md border border-purple-100 flex flex-wrap items-center justify-between gap-2 mb-2.5">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-purple-600 to-pink-500 text-white font-black text-xs flex items-center justify-center shadow">
+          LH
+        </div>
+        <div>
+          <h1 class="text-xs sm:text-sm font-black text-slate-700">
+            Giáo viên tạo: <span class="text-purple-700">Ms Lê Hằng English</span>
+            <span class="hidden md:inline-block ml-2 px-2 py-0.5 text-[11px] bg-purple-100 text-purple-800 rounded-full font-extrabold">IELTS READING FULL TEST (40 QUESTIONS)</span>
+          </h1>
+        </div>
+      </div>
+
+      <!-- Promotional Heading -->
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-extrabold text-amber-900 flex items-center gap-1.5 shadow-sm">
+        <i class="fa-solid fa-star text-amber-500 animate-spin" style="animation-duration: 6s;"></i>
+        <span>Đăng kí học tiếng anh 1-12, IELTS vui lòng liên hệ Ms Lê Hằng, zalo <strong class="text-rose-600 underline">0584 965 348</strong>.</span>
+      </div>
+    </header>
+
+    <!-- 2. IMPORTANT WARNING BANNER -->
+    <div class="bg-gradient-to-r from-rose-500 via-purple-600 to-teal-500 p-[2px] rounded-2xl shadow-md mb-3">
+      <div class="bg-white/95 rounded-[14px] px-4 py-2.5 text-center">
+        <p class="text-xs sm:text-sm font-black text-rose-600 tracking-wide">
+          ⚠️ LỜI NHẮC CỰC KỲ QUAN TRỌNG ⚠️
+        </p>
+        <p class="text-xs text-slate-700 font-bold mt-0.5 leading-relaxed">
+          Chỉ có <span class="text-purple-700 underline">đọc kỹ giải thích ngay sau mỗi câu</span>, sau đó <span class="text-emerald-700 underline">ghi lại từ vựng/cấu trúc mới vào vở</span> để học thì mới thực sự giỏi lên.
+          Làm cho xong mà không đọc giải thích hay đọc qua loa không ghi chép thì chỉ tốn thời gian vô ích!
+          <span class="text-rose-600 font-black ml-1">* Kéo tới đâu, làm tới đó! *</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- 3. TOP CONTROL BAR: PASSAGE TABS, TIMER, PROGRESS, HIGHLIGHT -->
+    <div class="bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-lg border border-slate-200 flex flex-wrap items-center justify-between gap-3 mb-3 sticky top-2 z-30">
+      
+      <!-- Passage Switcher Tabs -->
+      <div class="flex items-center gap-1.5 flex-wrap">
+        <button onclick="switchPassage(1)" id="tab-p1" class="btn-3d px-3.5 py-2 text-xs font-black rounded-xl bg-purple-600 text-white shadow-[0_4px_0_#581c87]">
+          🥔 Passage 1 (Q1–13)
+        </button>
+        <button onclick="switchPassage(2)" id="tab-p2" class="btn-3d px-3.5 py-2 text-xs font-black rounded-xl bg-slate-100 text-slate-700 border border-slate-300 shadow-[0_4px_0_#cbd5e1]">
+          ♻️ Passage 2 (Q14–26)
+        </button>
+        <button onclick="switchPassage(3)" id="tab-p3" class="btn-3d px-3.5 py-2 text-xs font-black rounded-xl bg-slate-100 text-slate-700 border border-slate-300 shadow-[0_4px_0_#cbd5e1]">
+          🌊 Passage 3 (Q27–40)
+        </button>
+      </div>
+
+      <!-- Center Timer Control -->
+      <div class="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-2xl border border-slate-200">
+        <div class="bg-slate-900 text-amber-400 font-mono font-black text-base px-3 py-1 rounded-xl flex items-center gap-1.5 shadow-inner">
+          <i class="fa-regular fa-clock text-xs"></i>
+          <span id="timerText">20:00</span>
+        </div>
+        <button id="timerBtn" onclick="toggleTimer()" class="btn-3d px-3 py-1.5 text-xs font-black bg-amber-400 hover:bg-amber-300 text-slate-900 rounded-xl shadow-[0_3px_0_#b45309]">
+          ▶ BẮT ĐẦU TÍNH GIỜ LÀM BÀI
+        </button>
+        <button onclick="resetTimer()" class="text-xs font-bold text-slate-500 hover:text-slate-800 px-1.5" title="Đặt lại 20:00">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+      </div>
+
+      <!-- Progress Bar & Highlight Toggle & Submit -->
+      <div class="flex items-center gap-3 flex-1 min-w-[260px] justify-end">
+        <div class="flex-1 max-w-[200px]">
+          <div class="flex justify-between text-[11px] font-black text-slate-600 mb-1">
+            <span id="scoreCounterText">Đúng: 0/40</span>
+            <span id="progressPercentText">0%</span>
+          </div>
+          <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden p-0.5">
+            <div id="progressBarFill" class="h-full bg-gradient-to-r from-teal-400 via-purple-500 to-pink-500 rounded-full transition-all duration-300" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <button id="highlightBtn" onclick="toggleHighlightMode()" class="btn-3d px-3 py-1.5 text-xs font-black rounded-xl bg-purple-100 text-purple-800 border border-purple-300 shadow-[0_3px_0_#c084fc]" title="Bôi đen văn bản để Highlight màu tím pastel">
+          <i class="fa-solid fa-highlighter mr-1"></i> Highlight: BẬT
+        </button>
+
+        <button onclick="openSubmitModal()" class="btn-3d px-4 py-2 text-xs font-black rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white shadow-[0_4px_0_#047857]">
+          🏆 NỘP BÀI
+        </button>
+      </div>
+    </div>
+
+    <!-- 4. SPLIT-SCREEN WORKSPACE (LEFT: READING PASSAGE, RIGHT: EXERCISES) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+      
+      <!-- LEFT PANE: READING PASSAGE & GLOSSARY -->
+      <div class="lg:col-span-6 bg-white rounded-2xl shadow-xl border-2 border-slate-200 flex flex-col h-[76vh]">
+        <div class="px-5 py-3 border-b border-slate-200 flex items-center justify-between bg-slate-50 rounded-t-2xl">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 text-[11px] font-black bg-purple-600 text-white rounded-lg uppercase" id="leftBadge">READING PASSAGE 1</span>
+            <span class="text-xs font-bold text-slate-500 hidden sm:inline">Bôi đen từ bất kỳ để Highlight tím ✨</span>
+          </div>
+          <span class="text-xs font-bold text-purple-700"><i class="fa-solid fa-arrows-up-down mr-1"></i>Cuộn độc lập</span>
+        </div>
+
+        <div id="readingPane" class="split-scroll overflow-y-auto p-5 space-y-4 flex-1 text-[14.5px] leading-relaxed text-slate-800">
+          <!-- Dynamically populated by switchPassage() -->
+        </div>
+      </div>
+
+      <!-- RIGHT PANE: INTERACTIVE EXERCISES -->
+      <div class="lg:col-span-6 bg-white rounded-2xl shadow-xl border-2 border-slate-200 flex flex-col h-[76vh]">
+        <div class="px-5 py-3 border-b border-slate-200 flex items-center justify-between bg-slate-50 rounded-t-2xl">
+          <div>
+            <span class="px-2.5 py-0.5 text-[11px] font-black bg-teal-600 text-white rounded-lg uppercase" id="rightBadge">EXERCISES: QUESTIONS 1–13</span>
+            <span class="text-xs font-bold text-slate-500 ml-2">Chấm & Giải thích tức thì ⚡</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <button onclick="switchPassage(1)" class="w-6 h-6 rounded-md text-xs font-black bg-purple-100 text-purple-800 hover:bg-purple-200">1</button>
+            <button onclick="switchPassage(2)" class="w-6 h-6 rounded-md text-xs font-black bg-purple-100 text-purple-800 hover:bg-purple-200">2</button>
+            <button onclick="switchPassage(3)" class="w-6 h-6 rounded-md text-xs font-black bg-purple-100 text-purple-800 hover:bg-purple-200">3</button>
+          </div>
+        </div>
+
+        <div id="exercisePane" class="split-scroll overflow-y-auto p-5 space-y-6 flex-1">
+          <!-- Dynamically populated by switchPassage() -->
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 5. FINAL SCORE & IELTS BAND MODAL -->
+  <div id="submitModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 shadow-2xl border-4 border-purple-400 text-center relative animate-bounce" style="animation-iteration-count: 1; animation-duration: 0.4s;">
+      <button onclick="closeSubmitModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-black">✕</button>
+      
+      <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-amber-400 to-yellow-300 flex items-center justify-center text-white text-4xl shadow-lg mb-3">
+        🏆
+      </div>
+
+      <h2 class="text-2xl font-black text-slate-800">BẢNG TỔNG KẾT ĐIỂM IELTS READING</h2>
+      <p class="text-xs font-extrabold text-purple-700 uppercase tracking-wider mt-0.5 mb-4">VOL 10 TEST 1 • Ms Lê Hằng English</p>
+
+      <div class="grid grid-cols-3 gap-3 mb-4">
+        <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-3">
+          <span class="text-[11px] font-bold text-purple-700 block">SỐ CÂU ĐÚNG</span>
+          <span id="finalCorrectCount" class="text-2xl font-black text-purple-900">0 / 40</span>
+        </div>
+        <div class="bg-teal-50 border-2 border-teal-200 rounded-2xl p-3">
+          <span class="text-[11px] font-bold text-teal-700 block">TỶ LỆ ĐÚNG</span>
+          <span id="finalPercent" class="text-2xl font-black text-teal-900">0%</span>
+        </div>
+        <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-3">
+          <span class="text-[11px] font-bold text-amber-800 block">IELTS BAND</span>
+          <span id="finalBandScore" class="text-2xl font-black text-rose-600">Band 2.5</span>
+        </div>
+      </div>
+
+      <!-- Teacher's Message -->
+      <div class="bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 rounded-2xl p-4 text-left mb-5">
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="px-2.5 py-0.5 bg-purple-600 text-white rounded-full text-xs font-black">Lời nhận xét từ Ms Lê Hằng</span>
+        </div>
+        <p id="finalTeacherMsg" class="text-sm font-bold text-slate-800 leading-relaxed italic"></p>
+      </div>
+
+      <!-- Band Reference Mini Table -->
+      <div class="text-[11px] bg-slate-50 p-3 rounded-xl border border-slate-200 text-slate-600 mb-5">
+        <p class="font-black text-slate-700 mb-1">📊 Bảng quy đổi chuẩn IELTS Academic Reading:</p>
+        <p>39–40: <strong>9.0</strong> | 37–38: <strong>8.5</strong> | 35–36: <strong>8.0</strong> | 33–34: <strong>7.5</strong> | 30–32: <strong>7.0</strong> | 27–29: <strong>6.5</strong> | 23–26: <strong>6.0</strong> | 20–22: <strong>5.5</strong> | 16–19: <strong>5.0</strong> | 13–15: <strong>4.5</strong> | 10–12: <strong>4.0</strong></p>
+      </div>
+
+      <div class="flex justify-center gap-3">
+        <button onclick="closeSubmitModal()" class="btn-3d px-5 py-2.5 rounded-xl bg-purple-600 text-white font-black text-xs shadow-[0_4px_0_#4c1d95]">
+          Xem lại giải thích chi tiết
+        </button>
+        <button onclick="location.reload()" class="btn-3d px-5 py-2.5 rounded-xl bg-slate-200 text-slate-800 font-black text-xs shadow-[0_4px_0_#94a3b8]">
+          🔄 Làm lại đề này
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Expired Notification Modal -->
+  <div id="timeUpModal" class="fixed inset-0 bg-slate-900/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border-4 border-rose-500 text-center">
+      <div class="w-16 h-16 mx-auto rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-3xl mb-3">
+        ⏰
+      </div>
+      <h3 class="text-xl font-black text-rose-600 mb-2">Đã hết giờ làm bài, vui lòng nộp bài nhé!</h3>
+      <p class="text-xs font-bold text-slate-600 mb-5">Hệ thống đã khóa thao tác chọn đáp án. Hãy nhấn nút bên dưới để xem tổng kết điểm và đọc giải thích chi tiết từng câu.</p>
+      <button onclick="document.getElementById('timeUpModal').classList.add('hidden'); openSubmitModal();" class="btn-3d w-full py-3 rounded-xl bg-rose-500 text-white font-black text-sm shadow-[0_4px_0_#9f1239]">
+        🏆 NỘP BÀI & XEM ĐIỂM NGAY
+      </button>
+    </div>
+  </div>
+
+  <script>
+    /* ============================================================================
+       1. WEB AUDIO API SOUND GENERATOR (Ding Chime & Cartoon Wrong Buzz)
+       ============================================================================ */
+    let audioCtx = null;
+    function initAudio() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      return audioCtx;
+    }
+
+    function playCorrectSound() {
+      try {
+        const ctx = initAudio();
+        const now = ctx.currentTime;
+        [587.33, 880, 1174.66].forEach((freq, i) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, now + i * 0.08);
+          gain.gain.setValueAtTime(0.22, now + i * 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.45);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + i * 0.08);
+          osc.stop(now + i * 0.08 + 0.46);
+        });
+      } catch (e) {}
+    }
+
+    function playWrongSound() {
+      try {
+        const ctx = initAudio();
+        const now = ctx.currentTime;
+        [340, 280, 210].forEach((freq, i) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(freq, now + i * 0.12);
+          gain.gain.setValueAtTime(0.15, now + i * 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.12 + 0.13);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + i * 0.12);
+          osc.stop(now + i * 0.12 + 0.14);
+        });
+      } catch (e) {}
+    }
+
+    /* ============================================================================
+       2. CONFETTI EFFECT
+       ============================================================================ */
+    const confettiCanvas = document.getElementById('confettiCanvas');
+    const cCtx = confettiCanvas.getContext('2d');
+    let particles = [];
+    let animId = null;
+
+    function resizeConfetti() {
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeConfetti);
+    resizeConfetti();
+
+    function fireConfetti() {
+      const palette = ['#00D26A', '#8854C0', '#FDCB6E', '#00C9A7', '#FF4757'];
+      for (let i = 0; i < 65; i++) {
+        particles.push({
+          x: window.innerWidth / 2 + (Math.random() - 0.5) * 250,
+          y: window.innerHeight * 0.45,
+          vx: (Math.random() - 0.5) * 14,
+          vy: (Math.random() - 0.9) * 14,
+          size: Math.random() * 7 + 4,
+          color: palette[Math.floor(Math.random() * palette.length)],
+          alpha: 1
+        });
+      }
+      if (!animId) renderConfetti();
+    }
+
+    function renderConfetti() {
+      cCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.35;
+        p.alpha -= 0.012;
+        if (p.alpha > 0) {
+          cCtx.fillStyle = p.color;
+          cCtx.globalAlpha = p.alpha;
+          cCtx.fillRect(p.x, p.y, p.size, p.size);
+        }
+      });
+      cCtx.globalAlpha = 1;
+      particles = particles.filter(p => p.alpha > 0 && p.y < confettiCanvas.height);
+      if (particles.length > 0) {
+        animId = requestAnimationFrame(renderConfetti);
+      } else {
+        animId = null;
+        cCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      }
+    }
+
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    /* ============================================================================
+       3. COMPLETE UNABRIDGED READING PASSAGES + VIETNAMESE TRANSLATIONS + GLOSSARY
+       ============================================================================ */
+    const passagesData = {
+      1: {
+        title: "IELTS Reading Intensive • Passage 1",
+        heading: "The Impact of the Potato",
+        subtitle: "Jeff Chapman relates the story of history's most important vegetable",
+        paragraphs: [
+          {
+            label: "Paragraph 1",
+            en: `The potato was first cultivated in South America between three and seven thousand years ago, though scientists believe it may have grown wild in the region as long as 13,000 years ago. The genetic patterns of potato distribution indicate that the potato probably originated in the mountainous west-central region of the continent.`,
+            vi: `Khoai tây lần đầu tiên được trồng ở Nam Mỹ vào khoảng từ ba đến bảy nghìn năm trước, mặc dù các nhà khoa học tin rằng nó có thể đã mọc hoang dã trong khu vực từ 13.000 năm trước. Các mô hình di truyền về sự phân bố khoai tây chỉ ra rằng khoai tây có lẽ có nguồn gốc từ vùng núi phía tây-trung bộ của lục địa này.`
+          },
+          {
+            label: "Paragraph 2",
+            en: `<span id="ev-q1">Early Spanish chroniclers who misused the Indian word batata (sweet potato) as the name for the potato noted the importance of the tuber to the Incan Empire. The Incas had learned to preserve the potato for storage by dehydrating and mashing the potatoes into a substance called chuño, which could be stored in a room for up to 10 years, providing excellent insurance against possible crop failures.</span> As well as using the food as a staple crop, the Incas thought potatoes made childbirth easier and used them to treat injuries.`,
+            vi: `Những người chép sử Tây Ban Nha thời kỳ đầu – những người đã dùng nhầm từ batata (khoai lang) của người bản địa để đặt tên cho khoai tây – đã ghi nhận tầm quan trọng của loại củ này đối với Đế chế Inca. Người Inca đã học được cách bảo quản khoai tây để dự trữ bằng cách làm khô và nghiền khoai tây thành một chất gọi là chuño, có thể cất giữ trong phòng tới 10 năm, mang lại sự bảo đảm tuyệt vời trước những vụ mất mùa có thể xảy ra. Bên cạnh việc sử dụng làm cây lương thực chính, người Inca còn cho rằng khoai tây giúp việc sinh nở dễ dàng hơn và dùng chúng để điều trị vết thương.`
+          },
+          {
+            label: "Paragraph 3",
+            en: `<span id="ev-q2">The Spanish conquistadors first encountered the potato when they arrived in Peru in 1532 in search of gold and noted Inca miners eating chuño.</span> <span id="ev-q3">At the time, the Spaniards failed to realize that the potato represented a far more important treasure than either silver or gold, but they did gradually begin to use potatoes as basic rations aboard their ships.</span> After the arrival of the potato in Spain in 1570, a few Spanish farmers began to cultivate it on a small scale, mostly as food for livestock.`,
+            vi: `Những kẻ chinh phục người Tây Ban Nha lần đầu tiên bắt gặp khoai tây khi họ đến Peru vào năm 1532 để tìm kiếm vàng và nhận thấy những người thợ mỏ Inca đang ăn chuño. Vào thời điểm đó, người Tây Ban Nha không nhận ra rằng khoai tây đại diện cho một kho báu còn quan trọng hơn nhiều so với bạc hay vàng, nhưng họ đã dần bắt đầu sử dụng khoai tây làm khẩu phần ăn cơ bản trên tàu của mình. Sau khi khoai tây đến Tây Ban Nha vào năm 1570, một số nông dân Tây Ban Nha bắt đầu trồng nó ở quy mô nhỏ, chủ yếu làm thức ăn cho gia súc.`
+          },
+          {
+            label: "Paragraph 4",
+            en: `Throughout Europe, potatoes were regarded with suspicion, distaste, and fear. Generally considered to be unfit for human consumption, they were used only as animal fodder and sustenance for the starving. In northern Europe, potatoes were primarily grown in botanical gardens as an exotic novelty. <span id="ev-q4">Even peasants refused to eat a plant that produced ugly, misshapen tubers and that had come from a heathen civilization.</span> Some felt that the potato plant's resemblance to plants in the nightshade family hinted that it was the creation of witches or devils.`,
+            vi: `Khắp châu Âu, khoai tây bị nhìn nhận với sự nghi ngờ, chê bai và sợ hãi. Nhìn chung bị coi là không phù hợp cho con người tiêu thụ, chúng chỉ được dùng làm thức ăn gia súc và nguồn cầm hơi cho những người chết đói. Ở Bắc Âu, khoai tây chủ yếu được trồng trong các vườn bách thảo như một thứ kỳ lạ ngoại lai. Ngay cả nông dân cũng từ chối ăn một loại cây tạo ra những củ xấu xí, dị dạng và xuất xứ từ một nền văn minh ngoại đạo. Một số người cảm thấy rằng sự giống nhau giữa cây khoai tây với các loài cây thuộc họ cà độc dược gợi ý rằng nó là tạo vật của phù thủy hoặc ma quỷ.`
+          },
+          {
+            label: "Paragraph 5",
+            en: `In meat-loving England, farmers and urban workers regarded potatoes with extreme distaste. In 1662, the Royal Society recommended the cultivation of the tuber to the English government and the nation, but this recommendation had little impact. <span id="ev-q5">Potatoes did not become a staple until, during the food shortages associated with the Revolutionary Wars, the English government began to officially encourage potato cultivation.</span> In 1795, the Board of Agriculture issued a pamphlet entitled "Hints Respecting the Culture and Use of Potatoes"; this was followed shortly by pro-potato editorials and potato recipes in The Times. Gradually, the lower classes began to follow the lead of the upper classes.`,
+            vi: `Ở nước Anh chuộng thịt, nông dân và công nhân thành thị cực kỳ ghét khoai tây. Năm 1662, Hiệp hội Hoàng gia đã khuyến nghị việc trồng loại củ này với chính phủ và quốc gia Anh, nhưng khuyến nghị này có rất ít tác động. Khoai tây đã không trở thành lương thực chính cho đến khi, trong đợt thiếu hụt lương thực gắn liền với các cuộc Chiến tranh Cách mạng, chính phủ Anh bắt đầu chính thức khuyến khích trồng khoai tây. Năm 1795, Hội đồng Nông nghiệp đã phát hành một cuốn sách nhỏ có tựa đề "Những gợi ý liên quan đến việc trồng trọt và sử dụng khoai tây"; ngay sau đó là các bài xã luận ủng hộ khoai tây và công thức nấu khoai tây trên tờ The Times. Dần dần, tầng lớp thấp hơn bắt đầu làm theo sự dẫn dắt của tầng lớp thượng lưu.`
+          },
+          {
+            label: "Paragraph 6",
+            en: `A similar pattern emerged across the English Channel in the Netherlands, Belgium and France. While the potato slowly gained ground in eastern France (where it was often the only crop remaining after marauding soldiers plundered wheat fields and vineyards), it did not achieve widespread acceptance until the late 1700s. The peasants remained suspicious, in spite of a 1771 paper from the Faculté de Paris testifying that the potato was not harmful but beneficial. <span id="ev-q6">The people began to overcome their distaste when the plant received the royal seal of approval: Louis XVI began to sport a potato flower in his buttonhole, and Marie-Antoinette wore a purple potato blossom in her hair.</span>`,
+            vi: `Một mô hình tương tự đã xuất hiện bên kia Eo biển Manche tại Hà Lan, Bỉ và Pháp. Mặc dù khoai tây dần có chỗ đứng ở miền đông nước Pháp (nơi nó thường là vụ mùa duy nhất còn sót lại sau khi những người lính cướp bóc tàn phá các cánh đồng lúa mì và vườn nho), nó vẫn không đạt được sự chấp nhận rộng rãi cho đến cuối những năm 1700. Nông dân vẫn hoài nghi, bất chấp một tài liệu năm 1771 từ Đại học Paris chứng thực rằng khoai tây không có hại mà còn có lợi. Người dân bắt đầu vượt qua sự chê bai khi loài cây này nhận được sự bảo chứng của hoàng gia: Vua Louis XVI bắt đầu cài một bông hoa khoai tây trên khuy áo, và Hoàng hậu Marie-Antoinette cài một bông hoa khoai tây màu tím lên tóc.`
+          },
+          {
+            label: "Paragraph 7",
+            en: `<span id="ev-q7">Frederick the Great of Prussia saw the potato's potential to help feed his nation and lower the price of bread, but faced the challenge of overcoming the people's prejudice against the plant.</span> When he issued a 1774 order for his subjects to grow potatoes as protection against famine, the town of Kolberg replied: "The things have neither smell nor taste, not even the dogs will eat them, so what use are they to us?" <span id="ev-q8">Trying a less direct approach to encourage his subjects to begin planting potatoes, Frederick used a bit of reverse psychology: he planted a royal field of potato plants and stationed a heavy guard to protect this field from thieves.</span> Nearby peasants naturally assumed that anything worth guarding was worth stealing, and so sneaked into the field and snatched the plants for their home gardens. Of course, this was entirely in line with Frederick's wishes.`,
+            vi: `Friedrich Đại đế của nước Phổ đã nhìn thấy tiềm năng của khoai tây trong việc giúp nuôi sống quốc gia và hạ giá bánh mì, nhưng phải đối mặt với thách thức trong việc vượt qua định kiến của người dân đối với loài cây này. Khi ông ban hành sắc lệnh năm 1774 yêu cầu thần dân trồng khoai tây để phòng chống nạn đói, thị trấn Kolberg đã trả lời: "Những thứ đó chẳng có mùi cũng chẳng có vị, đến chó còn không thèm ăn, vậy chúng có ích gì cho chúng tôi?" Thử một cách tiếp cận ít trực tiếp hơn để khuyến khích thần dân bắt đầu trồng khoai tây, Friedrich đã sử dụng một chút tâm lý học ngược: ông cho trồng một cánh đồng khoai tây hoàng gia và bố trí đội lính canh gác nghiêm ngặt để bảo vệ cánh đồng này khỏi kẻ trộm. Nông dân quanh vùng tự nhiên cho rằng bất cứ thứ gì đáng canh gác đều đáng để đánh cắp, và thế là họ lẻn vào cánh đồng và chộp lấy các cây khoai tây mang về vườn nhà. Tất nhiên, điều này hoàn toàn đúng với mong muốn của Friedrich.`
+          },
+          {
+            label: "Paragraph 8",
+            en: `Historians debate whether the potato was primarily a cause or an effect of the huge population boom in industrial-era England and Wales. <span id="ev-q9">Prior to 1800, the English diet had consisted primarily of meat, supplemented by bread, butter, and cheese.</span> Few vegetables were consumed, with most vegetables being regarded as nutritionally worthless and potentially harmful. This view began to change gradually in the late 1700s. The Industrial Revolution was drawing an ever-increasing percentage of the populace into crowded cities, where only the richest could afford homes with ovens or coal storage rooms, and people were working 12–16-hour days, which left them with little time or energy to prepare food. <span id="ev-q10">High-yielding, easily prepared potato crops were the obvious solution to England's food problems.</span>`,
+            vi: `Các nhà sử học tranh luận liệu khoai tây chủ yếu là nguyên nhân hay hệ quả của sự bùng nổ dân số khổng lồ ở Anh và xứ Wales thời công nghiệp. Trước năm 1800, chế độ ăn của người Anh chủ yếu bao gồm thịt, bổ sung thêm bánh mì, bơ và phô mai. Rất ít rau củ được tiêu thụ, với hầu hết các loại rau bị coi là vô giá trị về mặt dinh dưỡng và có khả năng gây hại. Quan điểm này bắt đầu thay đổi dần vào cuối những năm 1700. Cuộc Cách mạng Công nghiệp đang thu hút tỷ lệ dân chúng ngày càng tăng vào các thành phố đông đúc, nơi chỉ những người giàu nhất mới đủ tiền mua nhà có lò nướng hoặc phòng chứa than, và người lao động phải làm việc từ 12–16 giờ mỗi ngày, khiến họ còn rất ít thời gian hoặc sức lực để chuẩn bị thức ăn. Những vụ mùa khoai tây năng suất cao, dễ chế biến là giải pháp hiển nhiên cho vấn đề lương thực của nước Anh.`
+          },
+          {
+            label: "Paragraph 9",
+            en: `Whereas most of their neighbours regarded the potato with suspicion and had to be persuaded to use it by the upper classes, the Irish peasantry embraced the tuber more passionately than anyone since the Incas. <span id="ev-q11">The potato was well suited to the Irish soil and climate, and its high yield suited the most important concern of most Irish farmers: to feed their families.</span>`,
+            vi: `Trong khi hầu hết các nước láng giềng nhìn nhận khoai tây với sự nghi ngờ và phải được tầng lớp thượng lưu thuyết phục mới sử dụng, thì tầng lớp nông dân Ireland lại đón nhận loại củ này nồng nhiệt hơn bất kỳ ai kể từ thời người Inca. Khoai tây rất phù hợp với đất đai và khí hậu Ireland, và năng suất cao của nó đáp ứng được mối quan tâm quan trọng nhất của hầu hết nông dân Ireland: nuôi sống gia đình họ.`
+          },
+          {
+            label: "Paragraph 10",
+            en: `The most dramatic example of the potato's potential to alter population patterns occurred in Ireland, where the potato had become a staple by 1800. <span id="ev-q12">The Irish population doubled to eight million between 1780 and 1841, without any significant expansion of industry or reform of agricultural techniques beyond the widespread cultivation of the potato.</span> <span id="ev-q13">Though Irish landholding practices were primitive in comparison with those of England, the potato's high yields allowed even the poorest farmers to produce more healthy food than they needed with scarcely any investment or hard labour.</span> Even children could easily plant, harvest, and cook potatoes, which, of course, required no threshing, curing, or grinding. The abundance provided by potatoes greatly decreased infant mortality and encouraged early marriage.`,
+            vi: `Ví dụ ấn tượng nhất về tiềm năng làm thay đổi mô hình dân số của khoai tây đã diễn ra ở Ireland, nơi khoai tây đã trở thành lương thực chính vào năm 1800. Dân số Ireland đã tăng gấp đôi lên tám triệu người trong khoảng thời gian từ 1780 đến 1841, mà không có bất kỳ sự mở rộng công nghiệp đáng kể nào hay cải cách kỹ thuật nông nghiệp nào ngoài việc canh tác rộng rãi cây khoai tây. Mặc dù tập quán sở hữu đất đai ở Ireland còn thô sơ so với ở Anh, năng suất cao của khoai tây đã cho phép ngay cả những người nông dân nghèo nhất sản xuất ra nhiều thực phẩm lành mạnh hơn mức họ cần mà hầu như không cần bất kỳ khoản đầu tư hay lao động nặng nhọc nào. Ngay cả trẻ em cũng có thể dễ dàng trồng, thu hoạch và nấu khoai tây, thứ tất nhiên không đòi hỏi phải đập lúa, phơi sấy hay xay xát. Sự dồi dào do khoai tây mang lại đã làm giảm đáng kể tỷ lệ tử vong ở trẻ sơ sinh và khuyến khích việc kết hôn sớm.`
+          }
+        ],
+        glossary: [
+          { word: "cultivate", pos: "v", vi: "trồng trọt, canh tác", syn: "grow, farm, plant" },
+          { word: "chronicler", pos: "n", vi: "người chép sử, sử gia", syn: "historian, recorder" },
+          { word: "tuber", pos: "n", vi: "củ (khoai tây)", syn: "root vegetable, potato" },
+          { word: "dehydrate", pos: "v", vi: "làm khô, hút hết nước", syn: "dry out, preserve" },
+          { word: "staple crop", pos: "n.phr", vi: "cây lương thực chính", syn: "main food source" },
+          { word: "conquistador", pos: "n", vi: "nhà chinh phạt Tây Ban Nha", syn: "Spanish conqueror" },
+          { word: "rations", pos: "n", vi: "khẩu phần lương thực", syn: "food supplies, provisions" },
+          { word: "fodder", pos: "n", vi: "thức ăn cho gia súc", syn: "food for livestock" },
+          { word: "sustenance", pos: "n", vi: "nguồn dinh dưỡng duy trì sự sống", syn: "nourishment, food" },
+          { word: "exotic novelty", pos: "n.phr", vi: "thứ mới lạ ngoại lai", syn: "unusual foreign plant" },
+          { word: "misshapen", pos: "adj", vi: "dị dạng, méo mó", syn: "ugly, deformed" },
+          { word: "heathen", pos: "adj", vi: "ngoại đạo, dị giáo", syn: "non-Christian" },
+          { word: "resemblance", pos: "n", vi: "sự giống nhau, nét tương đồng", syn: "similarity, likeness" },
+          { word: "marauding", pos: "adj", vi: "đi cướp bóc, tàn phá", syn: "plundering, raiding" },
+          { word: "prejudice", pos: "n", vi: "định kiến, thành kiến", syn: "suspicion, bias, distaste" },
+          { word: "reverse psychology", pos: "n.phr", vi: "tâm lý học ngược", syn: "indirect persuasion tactic" },
+          { word: "high-yielding", pos: "adj", vi: "năng suất cao", syn: "productive, abundant" },
+          { word: "infant mortality", pos: "n.phr", vi: "tỷ lệ tử vong ở trẻ sơ sinh", syn: "childhood death rate" }
+        ]
+      },
+      2: {
+        title: "IELTS Reading Intensive • Passage 2",
+        heading: "Solving the problem of waste disposal",
+        subtitle: "With the amount of rubbish being produced around the world increasing, Mark Rowe asks whether a new generation of incineration plants can help to solve the problem",
+        paragraphs: [
+          {
+            label: "Paragraph A (Question 14)",
+            en: `<span id="ev-q14">For many years, burning rubbish has been portrayed as the lazy option when it comes to dealing with the problem of waste disposal, since it sends toxic fumes into the air and appears to support a consumerist, throwaway society. Norway, however, appears to be burning its way through a sizeable chunk of Europe's municipal waste, using the heat created by this process to warm and power homes in many of its cities. Norway isn't alone: Germany, Sweden, Belgium and the Netherlands all burn significant quantities of rubbish, and across Europe there are 420 plants burning municipal waste.</span> With Europe dumping 150 million tonnes of rubbish into landfill every year, there would seem to be limitless supply.`,
+            vi: `Trong nhiều năm, việc đốt rác đã được miêu tả như một lựa chọn lười biếng khi giải quyết vấn đề xử lý chất thải, vì nó thải khói độc vào không khí và dường như cổ xúy cho một xã hội tiêu dùng vứt bỏ. Tuy nhiên, Na Uy dường như đang đốt một lượng lớn rác thải đô thị của châu Âu, sử dụng nhiệt lượng tạo ra từ quá trình này để sưởi ấm và cung cấp điện cho các ngôi nhà ở nhiều thành phố của mình. Na Uy không đơn độc: Đức, Thụy Điển, Bỉ và Hà Lan đều đốt một lượng rác đáng kể, và trên khắp châu Âu có 420 nhà máy đốt rác thải đô thị. Với việc châu Âu đổ 150 triệu tấn rác ra bãi chôn lấp mỗi năm, nguồn cung dường như là vô tận.`
+          },
+          {
+            label: "Paragraph B (Question 15)",
+            en: `<span id="ev-q15">Those who support burning waste say that a new generation of incinerators has made it a more attractive option. Filters and scrubbing mechanisms now capture harmful substances such as mercury, hydrochloric acid and heavy metals.</span> <span id="ev-q20">According to Ted Michaels, president of the US-based Energy Recovery Centre, 'There has been constant evolution in combustion engineering and emissions-control technology, and the output from these facilities is now minuscule.'</span> Above all, however, supporters say that incineration is the only way of preventing the long-term impacts of landfill. In ten years' time, says the World Bank, humans will be generating 2.2 billion tonnes of solid waste per year. Advocates see incineration as a practical way to deal swiftly with an immediate problem.`,
+            vi: `Những người ủng hộ việc đốt rác nói rằng thế hệ lò đốt rác mới đã biến nó thành một lựa chọn hấp dẫn hơn. Các bộ lọc và cơ chế làm sạch hiện nay thu giữ các chất độc hại như thủy ngân, axit clohydric và kim loại nặng. Theo Ted Michaels, chủ tịch Trung tâm Thu hồi Năng lượng có trụ sở tại Mỹ: 'Đã có sự tiến bộ không ngừng trong kỹ thuật đốt và công nghệ kiểm soát khí thải, và lượng phát thải từ các cơ sở này hiện nay là cực kỳ nhỏ.' Tuy nhiên, trên hết, những người ủng hộ nói rằng đốt rác là cách duy nhất để ngăn chặn những tác động lâu dài của việc chôn lấp rác. Ngân hàng Thế giới cho biết trong mười năm tới, con người sẽ tạo ra 2,2 tỷ tấn chất thải rắn mỗi năm. Những người ủng hộ xem việc đốt rác là một cách thiết thực để giải quyết nhanh chóng một vấn đề cấp bách.`
+          },
+          {
+            label: "Paragraph C (Question 16)",
+            en: `Levels of waste generation vary hugely around the world. <span id="ev-q21">'It's a problem for the developed nations,' says Joergen Fenhann, a senior scientist working with the UN Environment Programme in Denmark. 'The more you develop, the more you produce, buy and throw away.'</span> <span id="ev-q16">But the growth of incineration hasn't been universally welcomed. Lars Haltbrekken, chairman of Friends of the Earth in Norway, is concerned that incineration plants appear to generate demand for their services. 'The problem in Norway,' he explains, 'is that we have built too many waste-burning factories. So we've ended up importing waste from other countries. If you look at this from a very narrow perspective, it is, of course, better for the climate to burn rubbish from the UK rather than leave it in landfill there,' he continues. 'But from a broader perspective, it's a lazy way of getting rid of waste; you don't stimulate the goals of reducing, reusing and recycling.'</span>`,
+            vi: `Mức độ phát sinh chất thải rất khác nhau trên khắp thế giới. Joergen Fenhann, nhà khoa học cấp cao làm việc tại Chương trình Môi trường Liên Hợp Quốc ở Đan Mạch cho biết: 'Đó là vấn đề của các quốc gia phát triển. Bạn càng phát triển, bạn càng sản xuất, mua sắm và vứt bỏ nhiều hơn.' Nhưng sự gia tăng của việc đốt rác không phải ở đâu cũng được hoan nghênh. Lars Haltbrekken, chủ tịch tổ chức Friends of the Earth tại Na Uy, lo ngại rằng các nhà máy đốt rác dường như tự tạo ra nhu cầu cho dịch vụ của chúng. Ông giải thích: 'Vấn đề ở Na Uy là chúng tôi đã xây dựng quá nhiều nhà máy đốt rác. Vì vậy cuối cùng chúng tôi phải nhập khẩu rác từ các nước khác. Nếu nhìn từ góc độ hẹp, tất nhiên sẽ tốt hơn cho khí hậu khi đốt rác từ Anh thay vì để nó ở bãi chôn lấp bên đó. Nhưng nhìn từ góc độ rộng hơn, đó là một cách lười biếng để loại bỏ rác thải; bạn không thúc đẩy được các mục tiêu giảm thiểu, tái sử dụng và tái chế.'`
+          },
+          {
+            label: "Paragraph D (Question 17)",
+            en: `Incineration is also at odds with EU policy, which promotes a 'recycling hierarchy': ideally, we simply produce less waste in the first place; failing that, we reuse objects more; the next best option is recycling; only then should we consider incineration, while dumping in landfill is the last resort. <span id="ev-q17">Dealing with the problem of waste disposal involves tracing the whole process that takes the material from its inception to landfill. We used to call this the 'cradle-to-grave' life cycle; now, the talk is of 'cradle to cradle' and an even more comprehensive concept known as 'zero waste'.</span> 'The philosophy of cradle to cradle is about designing products that are actually good for the environment at the end of their life,' says Joan Marc Simon, European spokesman for the environmental movement GAIA. 'You design a bottle that contains no toxins, is fully recyclable and requires the minimum amount of energy to produce.' <span id="ev-q22">As Simon points out, however, without the right mechanisms in place, 'nothing guarantees that this bottle will end up being properly collected and treated in the appropriate recycling facility'.</span>`,
+            vi: `Việc đốt rác cũng mâu thuẫn với chính sách của EU, vốn thúc đẩy một 'thứ bậc tái chế': lý tưởng nhất là ngay từ đầu chúng ta chỉ cần tạo ra ít rác hơn; nếu không làm được điều đó, chúng ta tái sử dụng đồ vật nhiều hơn; lựa chọn tốt nhất tiếp theo là tái chế; chỉ sau đó chúng ta mới nên xem xét việc đốt rác, trong khi đổ ra bãi chôn lấp là giải pháp cuối cùng. Giải quyết vấn đề xử lý chất thải bao gồm việc theo dõi toàn bộ quá trình đưa vật liệu từ khi khởi tạo cho đến bãi rác. Trước đây chúng ta từng gọi đây là vòng đời 'từ chiếc nôi đến nấm mồ' (cradle-to-grave); giờ đây người ta nói về 'từ chiếc nôi đến chiếc nôi' (cradle to cradle) và một khái niệm toàn diện hơn nữa được gọi là 'không rác thải' (zero waste). Joan Marc Simon, người phát ngôn châu Âu của phong trào môi trường GAIA nói: 'Triết lý cradle to cradle là thiết kế ra những sản phẩm thực sự tốt cho môi trường vào cuối vòng đời của chúng. Bạn thiết kế một cái chai không chứa độc tố, có thể tái chế hoàn toàn và đòi hỏi năng lượng tối thiểu để sản xuất.' Tuy nhiên, như Simon chỉ ra, nếu không có các cơ chế phù hợp, 'không có gì đảm bảo rằng chiếc chai này cuối cùng sẽ được thu gom và xử lý đúng cách tại cơ sở tái chế thích hợp'.`
+          },
+          {
+            label: "Paragraph E (Question 18)",
+            en: `<span id="ev-q18"><span id="ev-q23">Tim Burns, policy manager at Keep Britain Tidy, says, 'In the UK alone, people waste 10 billion tonnes of food every year. You can argue about composting that, or not buying it in the first place—if you do that, then that's money the retailers don't get, so it's not always clear-cut.'</span> The implications of zero waste are that we're going to have to take a good long look at those well-stocked supermarket shelves, too. 'Supermarkets keep their shelves stocked even when demand isn't there, which means they have to pay to dispose of a lot of food,' says Burns. 'But that cost is less to them than the cost in brand damage of having empty shelves.'</span>`,
+            vi: `Tim Burns, giám đốc chính sách tại tổ chức Keep Britain Tidy, nói: 'Chỉ riêng ở Anh, người dân lãng phí 10 tỷ tấn thực phẩm mỗi năm. Bạn có thể tranh luận về việc ủ phân số thực phẩm đó, hoặc không mua nó ngay từ đầu — nhưng nếu bạn làm vậy, thì đó là số tiền mà các nhà bán lẻ không thu được, vì vậy vấn đề không phải lúc nào cũng rạch ròi.' Hệ quả của triết lý không rác thải là chúng ta cũng sẽ phải xem xét kỹ lưỡng những kệ hàng siêu thị luôn đầy ắp đó. Burns nói: 'Các siêu thị luôn giữ cho kệ hàng của họ đầy ắp ngay cả khi không có nhu cầu, điều đó có nghĩa là họ phải trả tiền để vứt bỏ rất nhiều thực phẩm. Nhưng chi phí đó đối với họ vẫn thấp hơn cái giá phải trả cho sự tổn hại thương hiệu nếu để kệ hàng trống rỗng.'`
+          },
+          {
+            label: "Paragraph F (Question 19)",
+            en: `<span id="ev-q19">Recent history and changes in trends in recycling suggest that we should be prepared for unexpected developments. 'If someone back in the 1980s had suggested what waste would be like now, they would have been completely wrong,' says Richard Fisher, a PhD researcher at Cranfield University. <span id="ev-q24">'Consumerism has developed at a pace we never expected. Nobody would have said there would be so much electronic waste.</span> But recycling has grown, too—ten years ago, nobody would have predicted today's levels of recycling.'</span> But he points out that the need to reduce waste is still a difficult message to sell to consumers. He suggests that what people are really concerned about is their loved ones and the future they face. 'Perhaps we can align the environmental message to these deep-seated values,' he says. <span id="ev-q25">'We need to look at whether it's business that drives consumers or the other way around.</span> <span id="ev-q26">You need government to play a leadership role, whereas countries such as the UK seem to be stepping away from the environment in pursuit of short-term economic goals.'</span>`,
+            vi: `Lịch sử gần đây và những thay đổi trong xu hướng tái chế cho thấy chúng ta nên chuẩn bị tinh thần cho những diễn biến bất ngờ. Richard Fisher, nhà nghiên cứu tiến sĩ tại Đại học Cranfield cho biết: 'Nếu ai đó hồi những năm 1980 dự đoán rác thải hiện nay sẽ như thế nào, hẳn họ đã sai hoàn toàn. Chủ nghĩa tiêu dùng đã phát triển với tốc độ mà chúng ta chưa bao giờ ngờ tới. Không ai có thể nói rằng sẽ có nhiều rác thải điện tử đến vậy. Nhưng việc tái chế cũng đã phát triển — mười năm trước, không ai có thể dự đoán được mức độ tái chế như ngày nay.' Nhưng ông chỉ ra rằng sự cần thiết phải giảm thiểu rác thải vẫn là một thông điệp khó thuyết phục người tiêu dùng. Ông gợi ý rằng điều mọi người thực sự quan tâm là những người thân yêu của họ và tương lai mà họ phải đối mặt. Ông nói: 'Có lẽ chúng ta có thể gắn kết thông điệp môi trường với những giá trị ăn sâu này. Chúng ta cần xem xét liệu chính doanh nghiệp đang thúc đẩy người tiêu dùng hay ngược lại. Bạn cần chính phủ đóng vai trò tiên phong dẫn dắt, trong khi các quốc gia như Anh dường như đang rời xa vấn đề môi trường để theo đuổi các mục tiêu kinh tế ngắn hạn.'`
+          }
+        ],
+        glossary: [
+          { word: "incineration", pos: "n", vi: "việc đốt rác", syn: "burning rubbish/waste" },
+          { word: "portray", pos: "v", vi: "miêu tả, khắc họa", syn: "depict, represent" },
+          { word: "toxic fumes", pos: "n.phr", vi: "khói độc", syn: "harmful emissions" },
+          { word: "municipal waste", pos: "n.phr", vi: "rác thải đô thị/sinh hoạt", syn: "city rubbish" },
+          { word: "landfill", pos: "n", vi: "bãi chôn lấp rác", syn: "waste dumping site" },
+          { word: "scrubbing mechanism", pos: "n.phr", vi: "cơ chế lọc rửa khí thải", syn: "filtration system" },
+          { word: "minuscule", pos: "adj", vi: "cực kỳ nhỏ, không đáng kể", syn: "tiny, relatively harmless" },
+          { word: "advocate", pos: "n", vi: "người ủng hộ", syn: "supporter, proponent" },
+          { word: "stimulate", pos: "v", vi: "khuyến khích, thúc đẩy", syn: "encourage, promote" },
+          { word: "at odds with", pos: "idiom", vi: "mâu thuẫn với, xung đột với", syn: "in conflict with" },
+          { word: "last resort", pos: "n.phr", vi: "giải pháp cuối cùng bất đắc dĩ", syn: "final option" },
+          { word: "inception", pos: "n", vi: "sự khởi đầu, lúc mới tạo ra", syn: "beginning, creation" },
+          { word: "cradle-to-grave", pos: "adj", vi: "từ khi sản xuất đến khi vứt bỏ", syn: "full lifecycle to landfill" },
+          { word: "clear-cut", pos: "adj", vi: "rõ ràng, dễ quyết định", syn: "straightforward, simple" },
+          { word: "implications", pos: "n", vi: "hệ quả, tác động kéo theo", syn: "consequences, effects" },
+          { word: "consumerism", pos: "n", vi: "chủ nghĩa tiêu dùng", syn: "buying and throwing away" },
+          { word: "deep-seated", pos: "adj", vi: "ăn sâu, bám rễ", syn: "basic, fundamental" },
+          { word: "in pursuit of", pos: "prep.phr", vi: "nhằm theo đuổi", syn: "seeking, chasing" }
+        ]
+      },
+      3: {
+        title: "IELTS Reading Intensive • Passage 3",
+        heading: "How to clean a beach",
+        subtitle: "Oil spills such as the disaster in the Gulf of Mexico serve to remind us of the potential dangers of various commercial activities for our fragile oceanic environments",
+        paragraphs: [
+          {
+            label: "Paragraph 1",
+            en: `After the oil tanker Prestige spilt her cargo just off north-west Spain in November 2002, the beautiful beaches of the Galician coastline were covered by a metre-deep mixture of oil and seawater. The Prestige was only one incident in a long series of accidents involving oil tankers. <span id="ev-q27">But while each new incident, including that of the Prestige, brings environmental destruction and financial loss, it also improves our understanding of how to deal with oil spills.</span> This knowledge is hard-won, as people have often learned from mistakes made in dealing with oil spills. Aggressive clean-ups have sometimes caused more damage than the oil. But such difficulties apart, a rough consensus on how to deal with the issues involved in clearing up oil spills has begun to emerge.`,
+            vi: `Sau khi tàu chở dầu Prestige làm tràn hàng hóa ngoài khơi phía tây bắc Tây Ban Nha vào tháng 11 năm 2002, những bãi biển tuyệt đẹp của đường bờ biển Galicia đã bị bao phủ bởi một hỗn hợp dầu và nước biển sâu tới một mét. Vụ tàu Prestige chỉ là một sự cố trong một chuỗi dài các vụ tai nạn liên quan đến tàu chở dầu. Nhưng trong khi mỗi sự cố mới, bao gồm cả vụ tàu Prestige, đều gây ra sự tàn phá môi trường và tổn thất tài chính, nó cũng cải thiện sự hiểu biết của chúng ta về cách ứng phó với sự cố tràn dầu. Kiến thức này rất khó khăn mới có được, vì con người thường học hỏi từ những sai lầm mắc phải khi xử lý tràn dầu. Các biện pháp làm sạch mạnh tay đôi khi còn gây ra nhiều thiệt hại hơn cả chính lượng dầu tràn. Nhưng gạt những khó khăn đó sang một bên, một sự đồng thuận cơ bản về cách giải quyết các vấn đề liên quan đến việc dọn sạch dầu tràn đã bắt đầu hình thành.`
+          },
+          {
+            label: "Paragraph 2",
+            en: `<span id="ev-q28">Oil is much less damaging at sea than on shore, so the best option is to skim the spilled oil off the surface of the water using specially equipped ships.</span> <span id="ev-q29">A series of wooden booms floating on the surface of the water can also be used to protect the coastline.</span> <span id="ev-q30">But the sea around the Prestige was too rough for the former, and much of the coast too exposed for booms to work, so there was little that could be done except watch the oil wash up onto the beaches.</span>`,
+            vi: `Dầu ở ngoài biển ít gây hại hơn nhiều so với khi dạt vào bờ, vì vậy lựa chọn tốt nhất là vớt lớp dầu tràn trên mặt nước bằng các tàu được trang bị đặc biệt. Một dãy phao chắn bằng gỗ nổi trên mặt nước cũng có thể được sử dụng để bảo vệ đường bờ biển. Nhưng vùng biển xung quanh tàu Prestige quá động đối với phương pháp thứ nhất, và phần lớn bờ biển lại quá trống trải khiến phao chắn không thể hoạt động, vì vậy hầu như không thể làm được gì ngoài việc đứng nhìn dầu dạt vào các bãi biển.`
+          },
+          {
+            label: "Paragraph 3",
+            en: `<span id="ev-q31">When oil arrives onshore, the question becomes how best to save affected plants and animals, while minimizing damage to the surrounding ecosystem, without running up a huge bill.</span> In large spills, leaving nature to do the job is a bad idea. Even the oiliest shore will return to normal, but without human intervention this can take many years. In the case of the Prestige, both the volume of oil spilt and the wildlife, fishing and tourist value of the Galician coast demanded action by specialists.`,
+            vi: `Khi dầu dạt vào bờ, câu hỏi đặt ra là làm thế nào tốt nhất để cứu các loài thực vật và động vật bị ảnh hưởng, đồng thời giảm thiểu thiệt hại cho hệ sinh thái xung quanh mà không làm phát sinh chi phí khổng lồ. Trong các vụ tràn dầu lớn, để mặc tự nhiên tự xử lý là một ý tưởng tồi. Ngay cả bờ biển dính nhiều dầu nhất cũng sẽ trở lại bình thường, nhưng nếu không có sự can thiệp của con người thì việc này có thể mất rất nhiều năm. Trong trường hợp của tàu Prestige, cả khối lượng dầu tràn lẫn giá trị về động vật hoang dã, đánh bắt cá và du lịch của bờ biển Galicia đều đòi hỏi hành động từ các chuyên gia.`
+          },
+          {
+            label: "Paragraph 4",
+            en: `<span id="ev-q32">To decide what to do, specialists combined their own professional experience with local knowledge in an assessment process known as 'net environmental benefit analysis'.</span> Factors taken into account include possible environmental destruction, such as damage to an oiled beach which is home to a breeding colony of seals or seabirds. <span id="ev-q33">Less immediate socio-economic repercussions also come into play: local people may rely on shellfish beds, for example, or an affected beach could be a tourist destination.</span> <span id="ev-q34">And such practical realities as the cost incurred by a particular clean-up option and how easy it will be to implement are also assessed.</span>`,
+            vi: `Để quyết định phải làm gì, các chuyên gia đã kết hợp kinh nghiệm chuyên môn của chính họ với kiến thức địa phương trong một quy trình đánh giá được gọi là 'phân tích lợi ích môi trường ròng'. Các yếu tố được tính đến bao gồm khả năng hủy hoại môi trường, chẳng hạn như thiệt hại đối với một bãi biển nhiễm dầu vốn là nơi sinh sản của đàn hải cẩu hoặc chim biển. Những hệ lụy kinh tế - xã hội ít tức thời hơn cũng được đưa vào xem xét: ví dụ như người dân địa phương có thể sống dựa vào các bãi nuôi sò ốc, hoặc bãi biển bị ảnh hưởng có thể là một điểm đến du lịch. Và những thực tế mang tính thực tiễn như chi phí phát sinh của một phương án làm sạch cụ thể và mức độ dễ dàng thực hiện nó cũng được đánh giá.`
+          },
+          {
+            label: "Paragraph 5",
+            en: `Every intensive clean-up option has its drawbacks. <span id="ev-q35">When oil from the Exxon Valdez polluted the Alaskan shoreline in 1989, hot water applied under high pressure was used to scrub the beaches.</span> But the parts of the shoreline that got this treatment recovered more slowly than those that did not. In Spain, this technique has so far been used only on man-made structures such as harbour walls.`,
+            vi: `Mỗi phương án làm sạch chuyên sâu đều có những nhược điểm của nó. Khi dầu từ tàu Exxon Valdez làm ô nhiễm bờ biển Alaska vào năm 1989, nước nóng phun dưới áp suất cao đã được sử dụng để cọ rửa các bãi biển. Nhưng những phần bờ biển được xử lý bằng cách này lại phục hồi chậm hơn so với những nơi không áp dụng. Ở Tây Ban Nha, kỹ thuật này cho đến nay chỉ được sử dụng trên các cấu trúc nhân tạo như tường cảng.`
+          },
+          {
+            label: "Paragraph 6",
+            en: `Other methods have been even more aggressive than this. <span id="ev-q36">When the Torrey Canyon ran aground off the south coast of England in March 1967, oiled beaches were treated with 10,000 tonnes of chemical sprays.</span> These turned out to be more toxic than the oil: many seashore invertebrates died, and the nutrients in the dispersants caused an explosion of seaweed growth.`,
+            vi: `Các phương pháp khác thậm chí còn quyết liệt hơn thế này. Khi tàu Torrey Canyon mắc cạn ngoài khơi bờ biển phía nam nước Anh vào tháng 3 năm 1967, các bãi biển nhiễm dầu đã được xử lý bằng 10.000 tấn hóa chất phun xịt. Những chất này hóa ra còn độc hại hơn cả dầu: nhiều loài động vật không xương sống ven biển đã chết, và các chất dinh dưỡng trong chất phân tán đã gây ra sự bùng nổ phát triển của rong biển.`
+          },
+          {
+            label: "Paragraph 7",
+            en: `In Galicia, local people wanted heavy machinery to come in and remove large quantities of oil quickly. But this has its own environmental cost. There were no tracks to the worst-affected beaches and it was feared that building them would harm the surrounding landscape. <span id="ev-q37">But in one of the areas affected, oil on the surface of the beaches was likely to be washed into the pipe that supplied water to a large fish farm. In the end, the desire to safeguard the farm tipped the balance in favour of building tracks for bulldozers and earthmovers, which scooped up the oil from the beach.</span> Such equipment was not used in all areas affected by the Prestige spill, however. Salt-marshes and estuaries are such delicate terrain that almost any activity does more damage than the oil.`,
+            vi: `Ở Galicia, người dân địa phương muốn máy móc hạng nặng vào cuộc và loại bỏ nhanh chóng một lượng lớn dầu. Nhưng điều này lại có cái giá môi trường riêng của nó. Không có đường dẫn vào các bãi biển bị ảnh hưởng nặng nề nhất và người ta lo ngại rằng việc mở đường sẽ làm hại cảnh quan xung quanh. Nhưng ở một trong những khu vực bị ảnh hưởng, dầu trên bề mặt bãi biển có nguy cơ bị cuốn vào đường ống cấp nước cho một trang trại nuôi cá lớn. Cuối cùng, mong muốn bảo vệ trang trại đã làm nghiêng cán cân sang hướng ủng hộ việc làm đường cho máy ủi và máy xúc đất vào xúc dầu khỏi bãi biển. Tuy nhiên, thiết bị như vậy không được sử dụng ở tất cả các khu vực bị ảnh hưởng bởi vụ tràn dầu Prestige. Đầm lầy nước mặn và cửa sông là những địa hình nhạy cảm đến mức hầu như bất kỳ hoạt động nào cũng gây hại nhiều hơn chính lượng dầu.`
+          },
+          {
+            label: "Paragraph 8",
+            en: `<span id="ev-q38">After the Amoco Cadiz disaster in 1978, when nearly a quarter of a million tonnes of oil were spilt off the coast of north-western France, heavy equipment was sent in to some polluted salt-marshes, where it scraped up the top half-metre of sediment. Twelve years later, these areas had still not recovered, whereas the oiled marshes that went uncleaned seemed in good shape.</span>`,
+            vi: `Sau thảm họa tàu Amoco Cadiz năm 1978, khi gần một phần tư triệu tấn dầu bị tràn ngoài khơi bờ biển phía tây bắc nước Pháp, thiết bị hạng nặng đã được đưa vào một số đầm lầy nước mặn bị ô nhiễm, tại đó chúng cạo đi nửa mét trầm tích trên cùng. Mười hai năm sau, những khu vực này vẫn chưa phục hồi, trong khi những đầm lầy nhiễm dầu không được dọn rửa thì dường như lại ở trong tình trạng tốt.`
+          },
+          {
+            label: "Paragraph 9",
+            en: `After a short period of time, the Prestige spill moved from the emergency phase—high profile, high pressure—to a long-term painstaking project. Cleaning the beaches, for example, was a huge task. At Carnota, one of the most heavily affected areas of Galicia, dozens of volunteers and soldiers worked their way along six kilometres of sand on hands and knees, scraping up the small lumps of solidified oil. At other beaches nearby, people sifted the sand and combed seaside plants by hand to remove the oil and stop it becoming buried.`,
+            vi: `Sau một thời gian ngắn, vụ tràn dầu Prestige chuyển từ giai đoạn khẩn cấp — thu hút nhiều sự chú ý và áp lực cao — sang một dự án lâu dài đầy gian khổ. Ví dụ, việc làm sạch các bãi biển là một nhiệm vụ khổng lồ. Tại Carnota, một trong những khu vực bị ảnh hưởng nặng nề nhất của Galicia, hàng chục tình nguyện viên và binh lính đã bò bằng tay và đầu gối dọc theo sáu km bãi cát, cạo từng cục dầu nhỏ đã đông đặc. Tại các bãi biển khác gần đó, người dân sàng cát và chải từng cây ven biển bằng tay để loại bỏ dầu và ngăn không cho nó bị chôn vùi.`
+          },
+          {
+            label: "Paragraph 10",
+            en: `<span id="ev-q39">Once workers there had done all they could, stubborn patches still remained on rocks and in crevices. A possibility was to move oily rocks down the beach into the surf since this accelerates the natural cleaning process, as can 'flushing'—i.e. pumping seawater over the shore and sifting the oil out of the run-off.</span> <span id="ev-q40">But as the coastline became cleaner, the clean-up started to cost more for progressively less reward and more environmental damage. The Galicians were then faced with perhaps their most difficult decision: when to stop.</span> As with most such operations, this decision is usually taken by local politicians rather than by environmentalists.`,
+            vi: `Một khi những người làm việc ở đó đã làm tất cả những gì có thể, những mảng dầu cứng đầu vẫn bám lại trên đá và trong các khe nứt. Một khả năng là di chuyển những tảng đá dính dầu xuống bãi biển vào vùng sóng vỗ vì việc này đẩy nhanh quá trình làm sạch tự nhiên, tương tự như phương pháp 'xối rửa' (flushing) — tức là bơm nước biển tưới lên bờ và lọc lấy dầu từ dòng nước chảy xuống. Nhưng khi đường bờ biển trở nên sạch hơn, việc dọn dẹp bắt đầu tốn kém hơn trong khi hiệu quả thu lại ngày càng ít đi và thiệt hại môi trường lại tăng thêm. Người dân Galicia khi đó phải đối mặt với quyết định có lẽ là khó khăn nhất của họ: khi nào thì dừng lại. Cũng như hầu hết các chiến dịch kiểu này, quyết định đó thường được đưa ra bởi các chính trị gia địa phương hơn là các nhà bảo vệ môi trường.`
+          }
+        ],
+        glossary: [
+          { word: "fragile", pos: "adj", vi: "mong manh, dễ tổn thương", syn: "delicate, vulnerable" },
+          { word: "hard-won", pos: "adj", vi: "khó khăn lắm mới đạt được", syn: "gained through effort/mistakes" },
+          { word: "consensus", pos: "n", vi: "sự đồng thuận, nhất trí", syn: "general agreement" },
+          { word: "skim", pos: "v", vi: "vớt, hớt trên bề mặt nước", syn: "remove from the surface" },
+          { word: "wooden boom", pos: "n.phr", vi: "phao chắn dầu bằng gỗ", syn: "floating barrier" },
+          { word: "intervention", pos: "n", vi: "sự can thiệp", syn: "involvement, action" },
+          { word: "repercussions", pos: "n", vi: "hệ lụy, tác động tiêu cực về sau", syn: "consequences, effects" },
+          { word: "incur", pos: "v", vi: "gánh chịu, phát sinh (chi phí)", syn: "generate, run up" },
+          { word: "drawback", pos: "n", vi: "nhược điểm, mặt hạn chế", syn: "disadvantage, downside" },
+          { word: "run aground", pos: "v.phr", vi: "mắc cạn (tàu thuyền)", syn: "be stranded on shallow bottom" },
+          { word: "invertebrate", pos: "n", vi: "động vật không xương sống", syn: "spineless marine creature" },
+          { word: "dispersant", pos: "n", vi: "hóa chất phân tán dầu", syn: "chemical spray" },
+          { word: "tip the balance", pos: "idiom", vi: "làm nghiêng cán cân quyết định", syn: "decide the outcome" },
+          { word: "salt-marsh", pos: "n", vi: "đầm lầy nước mặn", syn: "coastal wetland" },
+          { word: "estuary", pos: "n", vi: "cửa sông", syn: "river mouth" },
+          { word: "sediment", pos: "n", vi: "trầm tích, lớp bùn cát lắng đọng", syn: "topsoil layer" },
+          { word: "painstaking", pos: "adj", vi: "đòi hỏi sự tỉ mỉ, chịu khó, gian khổ", syn: "careful and laborious" },
+          { word: "crevice", pos: "n", vi: "khe nứt nhỏ trên đá", syn: "narrow crack" }
+        ]
+      }
+    };
+
+    /* ============================================================================
+       4. ALL 40 QUESTIONS WITH 4-STEP DETAILED EXPLANATIONS & EVIDENCE POINTERS
+       ============================================================================ */
+    const questionsDB = [
+      // ================= PASSAGE 1: Q1 - Q13 (The Impact of the Potato) =================
+      {
+        id: 1, passage: 1, type: "TFN",
+        prompt: "Early Spanish chroniclers called the potato by the Incan name 'chuño'.",
+        correct: "FALSE",
+        step1_trans: "Những người chép sử Tây Ban Nha thời kỳ đầu đã gọi khoai tây bằng cái tên 'chuño' của người Inca.",
+        evidence_id: "ev-q1",
+        evidence_quote: "Early Spanish chroniclers who misused the Indian word batata (sweet potato) as the name for the potato noted the importance of the tuber to the Incan Empire. The Incas had learned to preserve the potato for storage by dehydrating and mashing the potatoes into a substance called chuño...",
+        evidence_vi: "Những người chép sử Tây Ban Nha thời kỳ đầu – những người đã dùng nhầm từ batata (khoai lang) của người bản địa để đặt tên cho khoai tây... Người Inca đã học cách bảo quản khoai tây bằng cách làm khô và nghiền thành một chất gọi là chuño...",
+        synonyms: "called the potato ~ used as the name for the potato (batata >< chuño)",
+        options_analysis: [
+          { label: "Gốc TRUE", status: "Phương án nhiễu", text: "Bẫy ghép từ 'Early Spanish chroniclers' và 'chuño' nằm cùng đoạn 2." },
+          { label: "Gốc FALSE", status: "Đáp án đúng", text: "Sai sự thật vì người Tây Ban Nha gọi khoai tây là 'batata', còn 'chuño' là tên món khoai tây nghiền sấy khô của người Inca." },
+          { label: "Gốc NOT GIVEN", status: "Phương án nhiễu", text: "Sai vì bài đọc nói rất rõ tên gọi mà sử gia Tây Ban Nha đã dùng." }
+        ],
+        step3_why_right: "Đoạn 2 nêu rõ các sử gia Tây Ban Nha đã dùng nhầm từ 'batata' để gọi tên khoai tây ('misused the Indian word batata as the name for the potato'), còn 'chuño' là chế phẩm khoai tây phơi khô nghiền nát của người Inca. Do đó nhận định là SAI (FALSE).",
+        step4_why_wrong: "Loại TRUE vì râu ông nọ cắm cằm bà kia giữa tên gọi 'batata' và 'chuño'; loại NOT GIVEN vì thông tin định danh có đầy đủ."
+      },
+      {
+        id: 2, passage: 1, type: "TFN",
+        prompt: "The purpose of the Spanish coming to Peru was to find potatoes.",
+        correct: "FALSE",
+        step1_trans: "Mục đích của người Tây Ban Nha khi đến Peru là để tìm kiếm khoai tây.",
+        evidence_id: "ev-q2",
+        evidence_quote: "The Spanish conquistadors first encountered the potato when they arrived in Peru in 1532 in search of gold and noted Inca miners eating chuño.",
+        evidence_vi: "Những kẻ chinh phục người Tây Ban Nha lần đầu tiên bắt gặp khoai tây khi họ đến Peru vào năm 1532 để tìm kiếm vàng và nhận thấy những người thợ mỏ Inca đang ăn chuño.",
+        synonyms: "purpose of coming to Peru ~ arrived in Peru in search of gold (>< to find potatoes)",
+        options_analysis: [
+          { label: "Gốc TRUE", status: "Phương án nhiễu", text: "Sai vì họ chỉ tình cờ bắt gặp khoai tây khi đến Peru." },
+          { label: "Gốc FALSE", status: "Đáp án đúng", text: "Mục đích họ đến Peru là để tìm vàng ('in search of gold'), không phải tìm khoai tây." },
+          { label: "Gốc NOT GIVEN", status: "Phương án nhiễu", text: "Sai vì mục đích chuyến đi của người Tây Ban Nha được nêu trực tiếp." }
+        ],
+        step3_why_right: "Đoạn 3 khẳng định người Tây Ban Nha đến Peru vào năm 1532 với mục đích tìm kiếm vàng ('in search of gold') và chỉ tình cờ bắt gặp khoai tây ở đó. Vì vậy nói mục đích đến để tìm khoai tây là FALSE.",
+        step4_why_wrong: "Loại TRUE và NOT GIVEN vì cụm 'in search of gold' trực tiếp bác bỏ mục đích 'to find potatoes'."
+      },
+      {
+        id: 3, passage: 1, type: "TFN",
+        prompt: "The Spanish believed that the potato had the same nutrients as other vegetables.",
+        correct: "NOT GIVEN",
+        step1_trans: "Người Tây Ban Nha tin rằng khoai tây có cùng chất dinh dưỡng như các loại rau củ khác.",
+        evidence_id: "ev-q3",
+        evidence_quote: "At the time, the Spaniards failed to realize that the potato represented a far more important treasure than either silver or gold, but they did gradually begin to use potatoes as basic rations aboard their ships.",
+        evidence_vi: "Vào thời điểm đó, người Tây Ban Nha không nhận ra rằng khoai tây đại diện cho một kho báu quan trọng hơn nhiều so với bạc hay vàng, nhưng họ dần bắt đầu sử dụng khoai tây làm khẩu phần ăn cơ bản trên tàu.",
+        synonyms: "Không hề có thông tin so sánh hàm lượng dinh dưỡng (nutrients) của khoai tây với các loại rau khác theo niềm tin của người Tây Ban Nha.",
+        options_analysis: [
+          { label: "Gốc TRUE", status: "Phương án nhiễu", text: "Không có cơ sở trong bài đọc." },
+          { label: "Gốc FALSE", status: "Phương án nhiễu", text: "Không có thông tin phủ định hay so sánh dinh dưỡng ở đoạn nói về người Tây Ban Nha." },
+          { label: "Gốc NOT GIVEN", status: "Đáp án đúng", text: "Đoạn 3 chỉ nói người Tây Ban Nha dùng khoai tây làm khẩu phần ăn trên tàu và cho gia súc, hoàn toàn không nhắc tới việc so sánh chất dinh dưỡng với rau củ khác." }
+        ],
+        step3_why_right: "Đoạn 3 hoàn toàn không đề cập gì đến việc người Tây Ban Nha đánh giá hay so sánh chất dinh dưỡng ('nutrients') của khoai tây với các loại rau củ khác ('other vegetables'). Do đó đáp án là NOT GIVEN.",
+        step4_why_wrong: "Lưu ý ở đoạn 8 có nhắc người Anh coi rau củ là 'nutritionally worthless', nhưng không hề nói người Tây Ban Nha so sánh dinh dưỡng khoai tây bằng các rau khác."
+      },
+      {
+        id: 4, passage: 1, type: "TFN",
+        prompt: "Peasants at that time did not like to eat potatoes because they were ugly.",
+        correct: "TRUE",
+        step1_trans: "Nông dân vào thời điểm đó không thích ăn khoai tây vì chúng xấu xí.",
+        evidence_id: "ev-q4",
+        evidence_quote: "Even peasants refused to eat a plant that produced ugly, misshapen tubers and that had come from a heathen civilization.",
+        evidence_vi: "Ngay cả nông dân cũng từ chối ăn một loại cây tạo ra những củ xấu xí, dị dạng và xuất xứ từ một nền văn minh ngoại đạo.",
+        synonyms: "did not like to eat ~ refused to eat; because they were ugly ~ produced ugly, misshapen tubers",
+        options_analysis: [
+          { label: "Gốc TRUE", status: "Đáp án đúng", text: "Trùng khớp hoàn toàn: nông dân từ chối ăn khoai tây vì củ của nó xấu xí và dị dạng ('ugly, misshapen tubers')." },
+          { label: "Gốc FALSE", status: "Phương án nhiễu", text: "Sai vì thông tin hoàn toàn khớp với đoạn 4." },
+          { label: "Gốc NOT GIVEN", status: "Phương án nhiễu", text: "Sai vì lý do nông dân từ chối ăn được nêu rõ ràng." }
+        ],
+        step3_why_right: "Câu dẫn chứng đoạn 4 nêu rõ: 'Even peasants refused to eat a plant that produced ugly, misshapen tubers...' (Nông dân từ chối ăn loài cây tạo ra những củ xấu xí, méo mó) -> Đồng nghĩa hoàn toàn với câu hỏi (TRUE).",
+        step4_why_wrong: "Loại FALSE và NOT GIVEN vì cả chủ ngữ, hành động và nguyên nhân đều trùng khớp 100%."
+      },
+      {
+        id: 5, passage: 1, type: "TFN",
+        prompt: "The popularity of potatoes in the UK was due to food shortages during the war.",
+        correct: "TRUE",
+        step1_trans: "Sự phổ biến của khoai tây ở Vương quốc Anh là do tình trạng thiếu hụt lương thực trong thời kỳ chiến tranh.",
+        evidence_id: "ev-q5",
+        evidence_quote: "Potatoes did not become a staple until, during the food shortages associated with the Revolutionary Wars, the English government began to officially encourage potato cultivation.",
+        evidence_vi: "Khoai tây đã không trở thành lương thực chính cho đến khi, trong đợt thiếu hụt lương thực gắn liền với các cuộc Chiến tranh Cách mạng, chính phủ Anh bắt đầu chính thức khuyến khích trồng khoai tây.",
+        synonyms: "popularity of potatoes ~ become a staple; due to food shortages during the war ~ during the food shortages associated with the Revolutionary Wars",
+        options_analysis: [
+          { label: "Gốc TRUE", status: "Đáp án đúng", text: "Khớp hoàn toàn: khoai tây chỉ trở thành lương thực phổ biến (staple) ở Anh nhờ đợt thiếu lương thực trong Chiến tranh Cách mạng." },
+          { label: "Gốc FALSE", status: "Phương án nhiễu", text: "Sai vì khuyến nghị năm 1662 không có tác động, mãi đến chiến tranh mới phổ biến." },
+          { label: "Gốc NOT GIVEN", status: "Phương án nhiễu", text: "Sai vì nguyên nhân được nêu rõ ở đoạn 5." }
+        ],
+        step3_why_right: "Đoạn 5 khẳng định trước đó khuyến nghị năm 1662 không có tác dụng, và khoai tây chỉ thực sự trở thành lương thực phổ biến ('become a staple') khi xảy ra tình trạng thiếu lương thực trong Chiến tranh Cách mạng ('food shortages associated with the Revolutionary Wars').",
+        step4_why_wrong: "Loại FALSE và NOT GIVEN vì dữ kiện khớp hoàn toàn với đoạn 5."
+      },
+      {
+        id: 6, passage: 1, type: "GAP",
+        prompt: "In France, people began to overcome their disgust towards potatoes because the King put a potato 6 [BLANK] in his buttonhole.",
+        correct: "flower",
+        accepted: ["flower"],
+        step1_trans: "Ở Pháp, người dân bắt đầu vượt qua sự chê bai đối với khoai tây vì Nhà vua đã cài một bông hoa (flower) khoai tây lên khuy áo của mình.",
+        evidence_id: "ev-q6",
+        evidence_quote: "The people began to overcome their distaste when the plant received the royal seal of approval: Louis XVI began to sport a potato flower in his buttonhole, and Marie-Antoinette wore a purple potato blossom in her hair.",
+        evidence_vi: "Người dân bắt đầu vượt qua sự chê bai khi loài cây này nhận được sự bảo chứng của hoàng gia: Vua Louis XVI bắt đầu cài một bông hoa khoai tây trên khuy áo, và Hoàng hậu Marie-Antoinette cài một bông hoa khoai tây màu tím lên tóc.",
+        synonyms: "disgust ~ distaste; the King ~ Louis XVI; put in his buttonhole ~ sport in his buttonhole",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "flower (n): bông hoa (đi với Vua Louis XVI và 'in his buttonhole')." },
+          { label: "Bẫy phương án nhiễu", status: "Phương án nhiễu", text: "blossom là bông hoa cài trên tóc của Hoàng hậu Marie-Antoinette, không phải cài ở khuy áo Nhà vua." }
+        ],
+        step3_why_right: "Đề bài yêu cầu điền ONE WORD ONLY đứng giữa 'a potato' và 'in his buttonhole' của Nhà vua (Louis XVI). Đối chiếu câu cuối đoạn 6: 'Louis XVI began to sport a potato flower in his buttonhole' -> từ cần điền là 'flower'.",
+        step4_why_wrong: "Không điền 'blossom' vì 'blossom' gắn với 'Marie-Antoinette wore... in her hair'."
+      },
+      {
+        id: 7, passage: 1, type: "GAP",
+        prompt: "Frederick realised the potential of the potato, but he had to handle the 7 [BLANK] from ordinary people.",
+        correct: "prejudice",
+        accepted: ["prejudice"],
+        step1_trans: "Friedrich nhận ra tiềm năng của khoai tây, nhưng ông đã phải xử lý/vượt qua định kiến (prejudice) từ những người dân thường.",
+        evidence_id: "ev-q7",
+        evidence_quote: "Frederick the Great of Prussia saw the potato's potential to help feed his nation and lower the price of bread, but faced the challenge of overcoming the people's prejudice against the plant.",
+        evidence_vi: "Friedrich Đại đế của nước Phổ đã nhìn thấy tiềm năng của khoai tây trong việc giúp nuôi sống quốc gia và hạ giá bánh mì, nhưng phải đối mặt với thách thức trong việc vượt qua định kiến của người dân đối với loài cây này.",
+        synonyms: "realised ~ saw; handle ~ overcoming; ordinary people ~ the people's",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "prejudice (n): sự định kiến, thành kiến của người dân." },
+          { label: "Bẫy từ loại", status: "Phương án nhiễu", text: "Sau mạo từ 'the' và trước giới từ 'from' cần một danh từ chính -> 'prejudice'." }
+        ],
+        step3_why_right: "Cụm 'handle the ___ from ordinary people' paraphrase trực tiếp cho 'overcoming the people's prejudice against the plant' ở câu đầu đoạn 7. Do đó từ cần điền là 'prejudice'.",
+        step4_why_wrong: "Không điền 'challenge' vì 'challenge' không đi với 'from ordinary people'."
+      },
+      {
+        id: 8, passage: 1, type: "GAP",
+        prompt: "The King of Prussia adopted a form of 8 [BLANK] psychology to make people accept potatoes.",
+        correct: "reverse",
+        accepted: ["reverse"],
+        step1_trans: "Nhà vua nước Phổ đã áp dụng một hình thức tâm lý học ngược (reverse psychology) để khiến người dân chấp nhận khoai tây.",
+        evidence_id: "ev-q8",
+        evidence_quote: "Trying a less direct approach to encourage his subjects to begin planting potatoes, Frederick used a bit of reverse psychology: he planted a royal field of potato plants and stationed a heavy guard...",
+        evidence_vi: "Thử một cách tiếp cận ít trực tiếp hơn để khuyến khích thần dân bắt đầu trồng khoai tây, Friedrich đã sử dụng một chút tâm lý học ngược (reverse psychology)...",
+        synonyms: "The King of Prussia ~ Frederick; adopted a form of ~ used a bit of",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "reverse (adj): đảo ngược (ghép với 'psychology' tạo thành thuật ngữ 'reverse psychology')." },
+          { label: "Ngữ pháp", status: "Phương án nhiễu", text: "Trước danh từ 'psychology' đã có sẵn, chỉ điền duy nhất 1 từ 'reverse'." }
+        ],
+        step3_why_right: "Trong đoạn 7 có cụm 'Frederick used a bit of reverse psychology'. Chữ 'psychology' đã nằm sẵn sau ô trống nên từ duy nhất cần điền là 'reverse'.",
+        step4_why_wrong: "Lưu ý chỉ viết 1 từ 'reverse', không lặp lại chữ 'psychology'."
+      },
+      {
+        id: 9, passage: 1, type: "GAP",
+        prompt: "Before 1800, English people preferred eating 9 [BLANK] with bread, butter and cheese.",
+        correct: "meat",
+        accepted: ["meat"],
+        step1_trans: "Trước năm 1800, người Anh thích ăn thịt (meat) cùng với bánh mì, bơ và phô mai.",
+        evidence_id: "ev-q9",
+        evidence_quote: "Prior to 1800, the English diet had consisted primarily of meat, supplemented by bread, butter, and cheese.",
+        evidence_vi: "Trước năm 1800, chế độ ăn của người Anh chủ yếu bao gồm thịt, bổ sung thêm bánh mì, bơ và phô mai.",
+        synonyms: "Before 1800 ~ Prior to 1800; preferred eating ~ diet had consisted primarily of; with ~ supplemented by",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "meat (n): thịt (thực phẩm chính trong khẩu phần ăn của người Anh trước năm 1800)." },
+          { label: "Bẫy phương án nhiễu", status: "Phương án nhiễu", text: "vegetables là thứ người Anh rất ít ăn ('Few vegetables were consumed')." }
+        ],
+        step3_why_right: "'Prior to 1800' đồng nghĩa với 'Before 1800', và 'consisted primarily of meat, supplemented by bread, butter, and cheese' khớp hoàn toàn với cấu trúc câu hỏi. Từ cần điền là 'meat'.",
+        step4_why_wrong: "Loại 'vegetables' vì người Anh thời đó coi rau củ là vô giá trị về dinh dưỡng."
+      },
+      {
+        id: 10, passage: 1, type: "GAP",
+        prompt: "The obvious way to deal with England's food problems was high-yielding potato 10 [BLANK].",
+        correct: "crops",
+        accepted: ["crops"],
+        step1_trans: "Cách hiển nhiên để giải quyết vấn đề lương thực của nước Anh là những vụ mùa (crops) khoai tây năng suất cao.",
+        evidence_id: "ev-q10",
+        evidence_quote: "High-yielding, easily prepared potato crops were the obvious solution to England's food problems.",
+        evidence_vi: "Những vụ mùa khoai tây năng suất cao, dễ chế biến là giải pháp hiển nhiên cho vấn đề lương thực của nước Anh.",
+        synonyms: "obvious way to deal with ~ obvious solution to; high-yielding potato [crops]",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "crops (n): các vụ mùa, cây trồng." },
+          { label: "Cấu trúc cụm danh từ", status: "Phương án nhiễu", text: "Đứng sau 'high-yielding potato' là danh từ chính 'crops'." }
+        ],
+        step3_why_right: "Câu cuối đoạn 8 viết: 'High-yielding, easily prepared potato crops were the obvious solution to England's food problems.' Do đó danh từ đứng ngay sau 'high-yielding potato' là 'crops'.",
+        step4_why_wrong: "Phải giữ nguyên danh từ số nhiều 'crops' đúng như trong văn bản gốc."
+      },
+      {
+        id: 11, passage: 1, type: "GAP",
+        prompt: "The Irish 11 [BLANK] and climate suited potatoes well.",
+        correct: "soil",
+        accepted: ["soil"],
+        step1_trans: "Đất đai (soil) và khí hậu của Ireland rất phù hợp với cây khoai tây.",
+        evidence_id: "ev-q11",
+        evidence_quote: "The potato was well suited to the Irish soil and climate, and its high yield suited the most important concern of most Irish farmers: to feed their families.",
+        evidence_vi: "Khoai tây rất phù hợp với đất đai và khí hậu Ireland, và năng suất cao của nó đáp ứng được mối quan tâm quan trọng nhất của hầu hết nông dân Ireland: nuôi sống gia đình họ.",
+        synonyms: "suited potatoes well ~ The potato was well suited to; The Irish [soil] and climate",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "soil (n): đất trồng (đứng trước 'and climate')." },
+          { label: "Ngữ pháp", status: "Phương án nhiễu", text: "Cấu trúc song hành 'The Irish ___ and climate' -> 'soil'." }
+        ],
+        step3_why_right: "Trong đoạn 9 có cụm cố định 'the Irish soil and climate'. Từ 'and climate' đã xuất hiện sau ô trống nên từ cần điền là 'soil'.",
+        step4_why_wrong: "Chỉ điền 1 từ duy nhất là 'soil'."
+      },
+      {
+        id: 12, passage: 1, type: "GAP",
+        prompt: "Between 1780 and 1841, thanks to the 12 [BLANK] of the potato, the Irish population doubled to eight million.",
+        correct: "cultivation",
+        accepted: ["cultivation"],
+        step1_trans: "Trong khoảng thời gian từ 1780 đến 1841, nhờ có việc canh tác/trồng trọt (cultivation) khoai tây, dân số Ireland đã tăng gấp đôi lên tám triệu người.",
+        evidence_id: "ev-q12",
+        evidence_quote: "The Irish population doubled to eight million between 1780 and 1841, without any significant expansion of industry or reform of agricultural techniques beyond the widespread cultivation of the potato.",
+        evidence_vi: "Dân số Ireland đã tăng gấp đôi lên tám triệu người trong khoảng thời gian từ 1780 đến 1841, mà không có bất kỳ sự mở rộng công nghiệp đáng kể nào hay cải cách kỹ thuật nông nghiệp nào ngoài việc canh tác rộng rãi cây khoai tây.",
+        synonyms: "thanks to the [cultivation] of the potato ~ beyond the widespread cultivation of the potato",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "cultivation (n): sự canh tác, trồng trọt." },
+          { label: "Bẫy giới hạn từ", status: "Phương án nhiễu", text: "Đề bài quy định ONE WORD ONLY nên chỉ điền danh từ chính 'cultivation' (bỏ tính từ 'widespread')." }
+        ],
+        step3_why_right: "Cấu trúc 'the ___ of the potato' trong câu dẫn chứng đoạn 10 là 'the widespread cultivation of the potato'. Vì đề yêu cầu ONE WORD ONLY nên ta điền danh từ chính là 'cultivation'.",
+        step4_why_wrong: "Không điền 'widespread cultivation' vì vượt quá giới hạn 1 từ."
+      },
+      {
+        id: 13, passage: 1, type: "GAP",
+        prompt: "The potato's high yields helped the poorest farmers to produce more healthy food almost without 13 [BLANK] or hard labour.",
+        correct: "investment",
+        accepted: ["investment"],
+        step1_trans: "Năng suất cao của khoai tây đã giúp những người nông dân nghèo nhất sản xuất ra nhiều thực phẩm lành mạnh hơn mà hầu như không cần đầu tư (investment) hay lao động vất vả.",
+        evidence_id: "ev-q13",
+        evidence_quote: "...the potato's high yields allowed even the poorest farmers to produce more healthy food than they needed with scarcely any investment or hard labour.",
+        evidence_vi: "...năng suất cao của khoai tây đã cho phép ngay cả những người nông dân nghèo nhất sản xuất ra nhiều thực phẩm lành mạnh hơn mức họ cần mà hầu như không cần bất kỳ khoản đầu tư hay lao động nặng nhọc nào.",
+        synonyms: "helped ~ allowed; almost without ~ with scarcely any; [investment] or hard labour",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "investment (n): sự đầu tư vốn/tiền bạc." },
+          { label: "Cấu trúc song hành", status: "Phương án nhiễu", text: "Đứng trước 'or hard labour' và sau 'almost without' (= with scarcely any) là danh từ 'investment'." }
+        ],
+        step3_why_right: "Cụm 'almost without' đồng nghĩa với 'with scarcely any', và phía sau ô trống đã có 'or hard labour'. Đối chiếu nguyên văn đoạn 10: 'with scarcely any investment or hard labour' -> đáp án là 'investment'.",
+        step4_why_wrong: "Chỉ điền đúng 1 từ 'investment'."
+      },
+
+      // ================= PASSAGE 2: Q14 - Q26 (Solving the problem of waste disposal) =================
+      {
+        id: 14, passage: 2, type: "MATCH",
+        optionsList: [
+          "i. New terminology reflecting changing attitudes to waste disposal",
+          "ii. Fundamental changes in behaviour in the past and future",
+          "iii. Ways of rewarding the public for recycling",
+          "iv. A surprising approach to waste disposal by several countries",
+          "v. Difficult choices for individuals and businesses",
+          "vi. Arguments against incineration from a country that uses it",
+          "vii. A number of justifications for the use of incineration"
+        ],
+        prompt: "Paragraph A (Question 14) — Choose the correct heading (i–vii)",
+        correct: "iv",
+        step1_trans: "Đoạn A — Một cách tiếp cận đáng ngạc nhiên đối với việc xử lý rác thải của một số quốc gia (iv).",
+        evidence_id: "ev-q14",
+        evidence_quote: "For many years, burning rubbish has been portrayed as the lazy option... Norway, however, appears to be burning its way through a sizeable chunk of Europe's municipal waste... Norway isn't alone: Germany, Sweden, Belgium and the Netherlands all burn significant quantities of rubbish...",
+        evidence_vi: "Trong nhiều năm, việc đốt rác bị coi là lựa chọn lười biếng... Tuy nhiên, Na Uy lại đang đốt một lượng lớn rác thải đô thị của châu Âu... Na Uy không đơn độc: Đức, Thụy Điển, Bỉ và Hà Lan đều đốt một lượng rác đáng kể...",
+        synonyms: "surprising approach ~ portrayed as lazy option, however, burning waste to warm and power homes; several countries ~ Norway, Germany, Sweden, Belgium and the Netherlands",
+        options_analysis: [
+          { label: "Heading iv", status: "Đáp án đúng", text: "A surprising approach to waste disposal by several countries (Trái với định kiến đốt rác là xấu, nhiều nước châu Âu lại đốt rác để phát điện và sưởi ấm)." },
+          { label: "Heading vii", status: "Phương án nhiễu", text: "Đoạn A chỉ giới thiệu thực trạng các nước đang đốt rác chứ chưa nêu các lý lẽ kỹ thuật bảo vệ việc đốt rác (nằm ở đoạn B)." }
+        ],
+        step3_why_right: "Đoạn A tạo sự bất ngờ bằng từ chuyển ý 'however': dù đốt rác vốn bị coi là tiêu cực, nhưng nhiều quốc gia ('several countries': Na Uy, Đức, Thụy Điển, Bỉ, Hà Lan) lại đang áp dụng mạnh mẽ để sưởi ấm và cấp điện -> khớp hoàn toàn với Heading iv.",
+        step4_why_wrong: "Loại vi vì đoạn A chưa nêu lập luận phản đối từ phía Na Uy; loại vii vì đoạn B mới nêu các lý lẽ biện minh cho lò đốt thế hệ mới."
+      },
+      {
+        id: 15, passage: 2, type: "MATCH",
+        optionsList: [
+          "i. New terminology reflecting changing attitudes to waste disposal",
+          "ii. Fundamental changes in behaviour in the past and future",
+          "iii. Ways of rewarding the public for recycling",
+          "iv. A surprising approach to waste disposal by several countries",
+          "v. Difficult choices for individuals and businesses",
+          "vi. Arguments against incineration from a country that uses it",
+          "vii. A number of justifications for the use of incineration"
+        ],
+        prompt: "Paragraph B (Question 15) — Choose the correct heading (i–vii)",
+        correct: "vii",
+        step1_trans: "Đoạn B — Một số lý lẽ biện minh/ủng hộ cho việc sử dụng phương pháp đốt rác (vii).",
+        evidence_id: "ev-q15",
+        evidence_quote: "Those who support burning waste say that a new generation of incinerators has made it a more attractive option. Filters and scrubbing mechanisms now capture harmful substances... supporters say that incineration is the only way of preventing the long-term impacts of landfill.",
+        evidence_vi: "Những người ủng hộ việc đốt rác nói rằng thế hệ lò đốt mới đã biến nó thành lựa chọn hấp dẫn hơn. Bộ lọc thu giữ chất độc hại... những người ủng hộ nói rằng đốt rác là cách duy nhất ngăn chặn tác động lâu dài của bãi chôn lấp.",
+        synonyms: "justifications for the use of incineration ~ Those who support burning waste / supporters say / Advocates see incineration as a practical way",
+        options_analysis: [
+          { label: "Heading vii", status: "Đáp án đúng", text: "A number of justifications for the use of incineration (Đưa ra hàng loạt lý do ủng hộ đốt rác: lọc sạch khí thải, tránh tác hại lâu dài của chôn lấp, xử lý nhanh lượng rác khổng lồ)." },
+          { label: "Heading vi", status: "Phương án nhiễu", text: "Ngược nghĩa vì đoạn B hoàn toàn nói về phe ủng hộ (supporters/advocates) chứ không phải phe phản đối." }
+        ],
+        step3_why_right: "Toàn bộ đoạn B liệt kê các lý do bảo vệ việc đốt rác từ những người ủng hộ ('Those who support burning waste', 'supporters say', 'Advocates see'): công nghệ lọc khí độc hiện đại, giảm khí thải tối đa, và giải quyết nhanh núi rác 2,2 tỷ tấn -> Heading vii.",
+        step4_why_wrong: "Các heading khác không đề cập đến luận điểm bảo vệ phương pháp đốt rác."
+      },
+      {
+        id: 16, passage: 2, type: "MATCH",
+        optionsList: [
+          "i. New terminology reflecting changing attitudes to waste disposal",
+          "ii. Fundamental changes in behaviour in the past and future",
+          "iii. Ways of rewarding the public for recycling",
+          "iv. A surprising approach to waste disposal by several countries",
+          "v. Difficult choices for individuals and businesses",
+          "vi. Arguments against incineration from a country that uses it",
+          "vii. A number of justifications for the use of incineration"
+        ],
+        prompt: "Paragraph C (Question 16) — Choose the correct heading (i–vii)",
+        correct: "vi",
+        step1_trans: "Đoạn C — Những lập luận phản đối việc đốt rác từ một quốc gia đang sử dụng phương pháp này (vi).",
+        evidence_id: "ev-q16",
+        evidence_quote: "But the growth of incineration hasn't been universally welcomed. Lars Haltbrekken, chairman of Friends of the Earth in Norway, is concerned that incineration plants appear to generate demand for their services... 'it's a lazy way of getting rid of waste; you don't stimulate the goals of reducing, reusing and recycling.'",
+        evidence_vi: "Nhưng sự gia tăng của việc đốt rác không phải ở đâu cũng được hoan nghênh. Lars Haltbrekken, chủ tịch Friends of the Earth tại Na Uy, lo ngại rằng các nhà máy đốt rác tự tạo ra nhu cầu... 'đó là cách lười biếng để loại bỏ rác; bạn không thúc đẩy mục tiêu giảm thiểu, tái sử dụng và tái chế.'",
+        synonyms: "Arguments against incineration ~ hasn't been universally welcomed / concerned / lazy way; a country that uses it ~ Norway",
+        options_analysis: [
+          { label: "Heading vi", status: "Đáp án đúng", text: "Arguments against incineration from a country that uses it (Ý kiến chỉ trích việc đốt rác từ chính đại diện môi trường ở Na Uy - nước đang đốt rác nhiều)." },
+          { label: "Heading iv", status: "Phương án nhiễu", text: "Heading iv đã dùng cho đoạn A nói về nhiều quốc gia." }
+        ],
+        step3_why_right: "Đoạn C dẫn lời ông Lars Haltbrekken tại Na Uy ('a country that uses it') đưa ra các lập luận phản đối việc đốt rác ('Arguments against incineration'): xây quá nhiều lò đốt khiến phải nhập khẩu rác và làm triệt tiêu động lực giảm thiểu, tái sử dụng, tái chế -> Heading vi.",
+        step4_why_wrong: "Loại vii vì đây là lý lẽ phản đối (against) chứ không phải ủng hộ (justifications)."
+      },
+      {
+        id: 17, passage: 2, type: "MATCH",
+        optionsList: [
+          "i. New terminology reflecting changing attitudes to waste disposal",
+          "ii. Fundamental changes in behaviour in the past and future",
+          "iii. Ways of rewarding the public for recycling",
+          "iv. A surprising approach to waste disposal by several countries",
+          "v. Difficult choices for individuals and businesses",
+          "vi. Arguments against incineration from a country that uses it",
+          "vii. A number of justifications for the use of incineration"
+        ],
+        prompt: "Paragraph D (Question 17) — Choose the correct heading (i–vii)",
+        correct: "i",
+        step1_trans: "Đoạn D — Thuật ngữ mới phản ánh sự thay đổi thái độ đối với việc xử lý rác thải (i).",
+        evidence_id: "ev-q17",
+        evidence_quote: "We used to call this the 'cradle-to-grave' life cycle; now, the talk is of 'cradle to cradle' and an even more comprehensive concept known as 'zero waste'.",
+        evidence_vi: "Trước đây chúng ta từng gọi đây là vòng đời 'từ chiếc nôi đến nấm mồ' (cradle-to-grave); giờ đây người ta nói về 'từ chiếc nôi đến chiếc nôi' (cradle to cradle) và một khái niệm toàn diện hơn nữa được gọi là 'không rác thải' (zero waste).",
+        synonyms: "New terminology ~ used to call this 'cradle-to-grave'; now, the talk is of 'cradle to cradle' and 'zero waste'",
+        options_analysis: [
+          { label: "Heading i", status: "Đáp án đúng", text: "New terminology reflecting changing attitudes to waste disposal (Sự chuyển dịch từ thuật ngữ cũ 'cradle-to-grave' sang thuật ngữ mới 'cradle to cradle' và 'zero waste')." },
+          { label: "Heading iii", status: "Phương án nhiễu", text: "Trong bài không hề đề cập đến việc thưởng tiền/quà cho người dân khi tái chế (rewarding the public)." }
+        ],
+        step3_why_right: "Đoạn D tập trung giải thích sự thay đổi trong cách gọi tên và triết lý thiết kế sản phẩm: từ thuật ngữ cũ 'cradle-to-grave' sang các thuật ngữ mới ('New terminology') là 'cradle to cradle' và 'zero waste' -> Heading i.",
+        step4_why_wrong: "Các heading khác không nói về khái niệm/thuật ngữ mới (terminology)."
+      },
+      {
+        id: 18, passage: 2, type: "MATCH",
+        optionsList: [
+          "i. New terminology reflecting changing attitudes to waste disposal",
+          "ii. Fundamental changes in behaviour in the past and future",
+          "iii. Ways of rewarding the public for recycling",
+          "iv. A surprising approach to waste disposal by several countries",
+          "v. Difficult choices for individuals and businesses",
+          "vi. Arguments against incineration from a country that uses it",
+          "vii. A number of justifications for the use of incineration"
+        ],
+        prompt: "Paragraph E (Question 18) — Choose the correct heading (i–vii)",
+        correct: "v",
+        step1_trans: "Đoạn E — Những lựa chọn khó khăn cho các cá nhân và doanh nghiệp (v).",
+        evidence_id: "ev-q18",
+        evidence_quote: "You can argue about composting that, or not buying it in the first place—if you do that, then that's money the retailers don't get, so it's not always clear-cut... 'Supermarkets keep their shelves stocked even when demand isn't there, which means they have to pay to dispose of a lot of food... But that cost is less to them than the cost in brand damage of having empty shelves.'",
+        evidence_vi: "Bạn có thể tranh luận về việc ủ phân, hoặc không mua nó ngay từ đầu — nhưng nếu làm vậy thì các nhà bán lẻ mất doanh thu, nên vấn đề không phải lúc nào cũng rạch ròi... Các siêu thị phải cân nhắc giữa chi phí vứt bỏ thực phẩm thừa và thiệt hại thương hiệu nếu kệ hàng trống.",
+        synonyms: "Difficult choices ~ not always clear-cut; individuals and businesses ~ people buying/composting & retailers/supermarkets",
+        options_analysis: [
+          { label: "Heading v", status: "Đáp án đúng", text: "Difficult choices for individuals and businesses (Người tiêu dùng không mua thì nhà bán lẻ mất tiền; siêu thị phải chọn giữa chi phí hủy thực phẩm thừa và tổn hại thương hiệu khi kệ trống)." },
+          { label: "Heading ii", status: "Phương án nhiễu", text: "Đoạn E không bàn về lịch sử quá khứ (1980s) và tương lai như đoạn F." }
+        ],
+        step3_why_right: "Đoạn E chỉ ra thế tiến thoái lưỡng nan ('not always clear-cut' = 'Difficult choices') giữa người mua ('individuals') và các siêu thị/nhà bán lẻ ('businesses/retailers/supermarkets') trong việc giảm rác thải thực phẩm -> Heading v.",
+        step4_why_wrong: "Chỉ có đoạn E nói trực tiếp về bài toán kinh tế của 'retailers' và 'supermarkets'."
+      },
+      {
+        id: 19, passage: 2, type: "MATCH",
+        optionsList: [
+          "i. New terminology reflecting changing attitudes to waste disposal",
+          "ii. Fundamental changes in behaviour in the past and future",
+          "iii. Ways of rewarding the public for recycling",
+          "iv. A surprising approach to waste disposal by several countries",
+          "v. Difficult choices for individuals and businesses",
+          "vi. Arguments against incineration from a country that uses it",
+          "vii. A number of justifications for the use of incineration"
+        ],
+        prompt: "Paragraph F (Question 19) — Choose the correct heading (i–vii)",
+        correct: "ii",
+        step1_trans: "Đoạn F — Những thay đổi cơ bản trong hành vi ở quá khứ và tương lai (ii).",
+        evidence_id: "ev-q19",
+        evidence_quote: "Recent history and changes in trends in recycling suggest that we should be prepared for unexpected developments. 'If someone back in the 1980s had suggested what waste would be like now, they would have been completely wrong... Consumerism has developed at a pace we never expected... He suggests that what people are really concerned about is their loved ones and the future they face.'",
+        evidence_vi: "Lịch sử gần đây và những thay đổi trong xu hướng tái chế cho thấy chúng ta nên chuẩn bị cho những diễn biến bất ngờ. Nếu ai đó hồi thập niên 1980 dự đoán rác thải hiện nay... Chủ nghĩa tiêu dùng và tái chế đều thay đổi mạnh, và cần hướng tới tương lai.",
+        synonyms: "in the past ~ Recent history / back in the 1980s / ten years ago; and future ~ prepared for unexpected developments / the future they face",
+        options_analysis: [
+          { label: "Heading ii", status: "Đáp án đúng", text: "Fundamental changes in behaviour in the past and future (Nhìn lại sự thay đổi hành vi tiêu dùng và tái chế từ thập niên 1980 đến nay và định hướng thay đổi trong tương lai)." },
+          { label: "Heading iii", status: "Phương án nhiễu", text: "Không có thông tin về việc trao thưởng (rewarding) cho công chúng." }
+        ],
+        step3_why_right: "Đoạn F đối chiếu sự thay đổi lớn trong hành vi tiêu dùng và tái chế từ quá khứ ('Recent history', 'back in the 1980s', 'ten years ago') cho tới việc định hình hành vi người tiêu dùng vì tương lai ('the future they face') -> Heading ii.",
+        step4_why_wrong: "Heading iii là phương án nhiễu thừa không xuất hiện trong bài."
+      },
+      {
+        id: 20, passage: 2, type: "MATCH",
+        optionsList: [
+          "A. Incineration does not encourage responsible attitudes to waste disposal.",
+          "B. Recycling can sometimes create serious problems for the future.",
+          "C. Greater consumerism leads to higher levels of waste.",
+          "D. Proper systems are needed for the recycling of environmentally-friendly products.",
+          "F. Incineration of waste is now relatively harmless to the environment.",
+          "G. Efforts to reduce waste may affect profits for some types of companies."
+        ],
+        prompt: "20. Ted Michaels — Match the person with the correct opinion (A–G)",
+        correct: "F",
+        step1_trans: "Ted Michaels: Việc đốt rác thải hiện nay tương đối vô hại đối với môi trường (F).",
+        evidence_id: "ev-q20",
+        evidence_quote: "According to Ted Michaels, president of the US-based Energy Recovery Centre, 'There has been constant evolution in combustion engineering and emissions-control technology, and the output from these facilities is now minuscule.'",
+        evidence_vi: "Theo Ted Michaels, chủ tịch Trung tâm Thu hồi Năng lượng tại Mỹ: 'Đã có sự tiến bộ không ngừng trong kỹ thuật đốt và công nghệ kiểm soát khí thải, và lượng phát thải từ các cơ sở này hiện nay là cực kỳ nhỏ.'",
+        synonyms: "relatively harmless to the environment ~ capture harmful substances... and the output from these facilities is now minuscule",
+        options_analysis: [
+          { label: "Gốc F", status: "Đáp án đúng", text: "Incineration of waste is now relatively harmless to the environment (Nhờ công nghệ kiểm soát khí thải tiên tiến, lượng chất thải độc hại thoát ra từ lò đốt hiện nay là cực nhỏ - minuscule)." },
+          { label: "Gốc A", status: "Phương án nhiễu", text: "Đây là ý kiến của Lars Haltbrekken (Na Uy), không phải Ted Michaels." }
+        ],
+        step3_why_right: "Ông Ted Michaels khẳng định công nghệ kiểm soát khí thải đã phát triển vượt bậc khiến lượng khí thải độc hại thoát ra từ các nhà máy đốt rác hiện nay là cực kỳ nhỏ ('minuscule') -> đồng nghĩa với 'relatively harmless to the environment' (Đáp án F).",
+        step4_why_wrong: "Các ý kiến khác thuộc về những chuyên gia khác ở đoạn C, D, E."
+      },
+      {
+        id: 21, passage: 2, type: "MATCH",
+        optionsList: [
+          "A. Incineration does not encourage responsible attitudes to waste disposal.",
+          "B. Recycling can sometimes create serious problems for the future.",
+          "C. Greater consumerism leads to higher levels of waste.",
+          "D. Proper systems are needed for the recycling of environmentally-friendly products.",
+          "F. Incineration of waste is now relatively harmless to the environment.",
+          "G. Efforts to reduce waste may affect profits for some types of companies."
+        ],
+        prompt: "21. Joergen Fenhann — Match the person with the correct opinion (A–G)",
+        correct: "C",
+        step1_trans: "Joergen Fenhann: Chủ nghĩa tiêu dùng gia tăng dẫn đến mức độ rác thải cao hơn (C).",
+        evidence_id: "ev-q21",
+        evidence_quote: "'It's a problem for the developed nations,' says Joergen Fenhann, a senior scientist working with the UN Environment Programme in Denmark. 'The more you develop, the more you produce, buy and throw away.'",
+        evidence_vi: "Joergen Fenhann, nhà khoa học cấp cao làm việc tại Chương trình Môi trường Liên Hợp Quốc ở Đan Mạch nói: 'Đó là vấn đề của các quốc gia phát triển. Bạn càng phát triển, bạn càng sản xuất, mua sắm và vứt bỏ nhiều hơn.'",
+        synonyms: "Greater consumerism ~ The more you develop, the more you produce, buy; higher levels of waste ~ and throw away",
+        options_analysis: [
+          { label: "Gốc C", status: "Đáp án đúng", text: "Greater consumerism leads to higher levels of waste ('Càng phát triển thì càng sản xuất, mua sắm và vứt bỏ nhiều hơn')." },
+          { label: "Gốc A", status: "Phương án nhiễu", text: "Bẫy cùng đoạn C: Ý kiến A là của Lars Haltbrekken ở nửa sau đoạn C, không phải của Joergen Fenhann." }
+        ],
+        step3_why_right: "Câu nói của Joergen Fenhann: 'The more you develop, the more you produce, buy and throw away' diễn tả trực tiếp việc tiêu dùng nhiều hơn ('Greater consumerism') dẫn tới lượng rác vứt bỏ nhiều hơn ('higher levels of waste') -> Đáp án C.",
+        step4_why_wrong: "Cẩn thận không nhầm với Lars Haltbrekken cũng xuất hiện trong đoạn C."
+      },
+      {
+        id: 22, passage: 2, type: "MATCH",
+        optionsList: [
+          "A. Incineration does not encourage responsible attitudes to waste disposal.",
+          "B. Recycling can sometimes create serious problems for the future.",
+          "C. Greater consumerism leads to higher levels of waste.",
+          "D. Proper systems are needed for the recycling of environmentally-friendly products.",
+          "F. Incineration of waste is now relatively harmless to the environment.",
+          "G. Efforts to reduce waste may affect profits for some types of companies."
+        ],
+        prompt: "22. Joan Marc Simon — Match the person with the correct opinion (A–G)",
+        correct: "D",
+        step1_trans: "Joan Marc Simon: Cần có các hệ thống phù hợp để tái chế các sản phẩm thân thiện với môi trường (D).",
+        evidence_id: "ev-q22",
+        evidence_quote: "'The philosophy of cradle to cradle is about designing products that are actually good for the environment at the end of their life,' says Joan Marc Simon... As Simon points out, however, without the right mechanisms in place, 'nothing guarantees that this bottle will end up being properly collected and treated in the appropriate recycling facility'.",
+        evidence_vi: "Joan Marc Simon nói về việc thiết kế sản phẩm tốt cho môi trường... Tuy nhiên, như Simon chỉ ra, nếu không có các cơ chế phù hợp, 'không có gì đảm bảo rằng chiếc chai này cuối cùng sẽ được thu gom và xử lý đúng cách tại cơ sở tái chế thích hợp'.",
+        synonyms: "Proper systems are needed ~ without the right mechanisms in place, nothing guarantees...; environmentally-friendly products ~ products that are actually good for the environment",
+        options_analysis: [
+          { label: "Gốc D", status: "Đáp án đúng", text: "Proper systems are needed for the recycling of environmentally-friendly products (Dù thiết kế chai lọ thân thiện môi trường nhưng vẫn cần cơ chế thu gom và xử lý tái chế phù hợp)." },
+          { label: "Gốc B", status: "Phương án nhiễu", text: "Simon không hề nói việc tái chế gây ra vấn đề nghiêm trọng cho tương lai." }
+        ],
+        step3_why_right: "Joan Marc Simon nhấn mạnh rằng dù thiết kế ra chiếc chai không độc hại và tốt cho môi trường ('environmentally-friendly products'), nhưng nếu thiếu cơ chế phù hợp ('without the right mechanisms in place' = 'Proper systems are needed') thì không gì đảm bảo nó được thu gom và tái chế đúng cách -> Đáp án D.",
+        step4_why_wrong: "Các lựa chọn khác không khớp với phát biểu của Simon ở đoạn D."
+      },
+      {
+        id: 23, passage: 2, type: "MATCH",
+        optionsList: [
+          "A. Incineration does not encourage responsible attitudes to waste disposal.",
+          "B. Recycling can sometimes create serious problems for the future.",
+          "C. Greater consumerism leads to higher levels of waste.",
+          "D. Proper systems are needed for the recycling of environmentally-friendly products.",
+          "F. Incineration of waste is now relatively harmless to the environment.",
+          "G. Efforts to reduce waste may affect profits for some types of companies."
+        ],
+        prompt: "23. Tim Burns — Match the person with the correct opinion (A–G)",
+        correct: "G",
+        step1_trans: "Tim Burns: Những nỗ lực nhằm giảm thiểu rác thải có thể ảnh hưởng đến lợi nhuận của một số loại hình công ty (G).",
+        evidence_id: "ev-q23",
+        evidence_quote: "Tim Burns, policy manager at Keep Britain Tidy, says, 'In the UK alone, people waste 10 billion tonnes of food every year. You can argue about composting that, or not buying it in the first place—if you do that, then that's money the retailers don't get, so it's not always clear-cut.'",
+        evidence_vi: "Tim Burns nói: 'Chỉ riêng ở Anh, người dân lãng phí 10 tỷ tấn thực phẩm mỗi năm. Bạn có thể tranh luận về việc ủ phân, hoặc không mua nó ngay từ đầu — nếu bạn làm vậy, thì đó là số tiền mà các nhà bán lẻ không thu được...'",
+        synonyms: "Efforts to reduce waste ~ not buying it in the first place; affect profits for some types of companies ~ money the retailers don't get",
+        options_analysis: [
+          { label: "Gốc G", status: "Đáp án đúng", text: "Efforts to reduce waste may affect profits for some types of companies (Nếu người dân giảm mua thực phẩm thừa để bớt rác thì các công ty bán lẻ sẽ mất doanh thu/lợi nhuận)." },
+          { label: "Gốc C", status: "Phương án nhiễu", text: "C là ý kiến của Joergen Fenhann." }
+        ],
+        step3_why_right: "Tim Burns chỉ ra rằng nếu người tiêu dùng giảm rác bằng cách không mua thực phẩm dư thừa ngay từ đầu ('not buying it in the first place' = 'Efforts to reduce waste'), thì các nhà bán lẻ sẽ mất đi khoản tiền đó ('that's money the retailers don't get' = 'affect profits for some types of companies') -> Đáp án G.",
+        step4_why_wrong: "Đáp án G phản ánh chính xác mối liên hệ giữa giảm rác thải và doanh thu của các nhà bán lẻ/siêu thị."
+      },
+      {
+        id: 24, passage: 2, type: "GAP",
+        prompt: "There has, for example, been unexpected growth in waste from 24 [BLANK] products.",
+        correct: "electronic",
+        accepted: ["electronic"],
+        step1_trans: "Ví dụ, đã có sự gia tăng bất ngờ về lượng rác thải từ các sản phẩm điện tử (electronic).",
+        evidence_id: "ev-q24",
+        evidence_quote: "'Consumerism has developed at a pace we never expected. Nobody would have said there would be so much electronic waste.'",
+        evidence_vi: "'Chủ nghĩa tiêu dùng đã phát triển với tốc độ mà chúng ta chưa bao giờ ngờ tới. Không ai có thể nói rằng sẽ có nhiều rác thải điện tử (electronic waste) đến vậy.'",
+        synonyms: "unexpected growth ~ Nobody would have said there would be so much; waste from [electronic] products ~ electronic waste",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "electronic (adj): thuộc về điện tử (đứng trước danh từ 'products')." },
+          { label: "Biến đổi cấu trúc", status: "Phương án nhiễu", text: "electronic waste = waste from electronic products." }
+        ],
+        step3_why_right: "Trong đoạn F, nhà nghiên cứu Richard Fisher nói: 'Nobody would have said there would be so much electronic waste.' Cụm 'electronic waste' được viết lại thành 'waste from ___ products', vì vậy tính từ cần điền là 'electronic'.",
+        step4_why_wrong: "Chỉ điền 1 từ duy nhất là 'electronic'."
+      },
+      {
+        id: 25, passage: 2, type: "GAP",
+        prompt: "He suggests that the need to protect the environment should be linked to basic values, and adds that it might be better if consumers had more influence over 25 [BLANK]",
+        correct: "business",
+        accepted: ["business"],
+        step1_trans: "Ông gợi ý rằng sự cần thiết phải bảo vệ môi trường nên được gắn kết với các giá trị cơ bản, và nói thêm rằng sẽ tốt hơn nếu người tiêu dùng có nhiều ảnh hưởng hơn đối với doanh nghiệp (business)...",
+        evidence_id: "ev-q25",
+        evidence_quote: "'Perhaps we can align the environmental message to these deep-seated values,' he says. 'We need to look at whether it's business that drives consumers or the other way around.'",
+        evidence_vi: "'Có lẽ chúng ta có thể gắn kết thông điệp môi trường với những giá trị ăn sâu này,' ông nói. 'Chúng ta cần xem xét liệu chính doanh nghiệp (business) đang thúc đẩy người tiêu dùng hay ngược lại.'",
+        synonyms: "linked to basic values ~ align to these deep-seated values; consumers had more influence over [business] ~ whether it's business that drives consumers or the other way around",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "business (n): giới doanh nghiệp, hoạt động kinh doanh." },
+          { label: "Paraphrase", status: "Phương án nhiễu", text: "'the other way around' (ngược lại) nghĩa là consumers drive business (người tiêu dùng chi phối doanh nghiệp)." }
+        ],
+        step3_why_right: "Câu dẫn chứng đoạn F đặt vấn đề: 'whether it's business that drives consumers or the other way around' (liệu doanh nghiệp thúc đẩy người tiêu dùng hay người tiêu dùng chi phối doanh nghiệp). Vì vậy danh từ đứng sau 'consumers had more influence over' là 'business'.",
+        step4_why_wrong: "Điền nguyên văn từ 'business' trong đoạn F."
+      },
+      {
+        id: 26, passage: 2, type: "GAP",
+        prompt: "...and more direction was provided by 26 [BLANK].",
+        correct: "government",
+        accepted: ["government"],
+        step1_trans: "...và có nhiều sự định hướng/dẫn dắt hơn được cung cấp bởi chính phủ (government).",
+        evidence_id: "ev-q26",
+        evidence_quote: "'You need government to play a leadership role, whereas countries such as the UK seem to be stepping away from the environment in pursuit of short-term economic goals.'",
+        evidence_vi: "'Bạn cần chính phủ (government) đóng vai trò tiên phong dẫn dắt, trong khi các quốc gia như Anh dường như đang rời xa vấn đề môi trường để theo đuổi các mục tiêu kinh tế ngắn hạn.'",
+        synonyms: "more direction was provided by [government] ~ need government to play a leadership role",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "government (n): chính phủ (chủ thể cần đóng vai trò dẫn dắt - leadership role)." },
+          { label: "Ngữ pháp", status: "Phương án nhiễu", text: "Sau giới từ 'by' trong câu bị động 'was provided by' cần danh từ chỉ tác nhân thực hiện hành động định hướng -> 'government'." }
+        ],
+        step3_why_right: "Cụm 'more direction was provided by ___' là dạng bị động paraphrase cho cụm 'need government to play a leadership role' (cần chính phủ đóng vai trò lãnh đạo/định hướng). Do đó đáp án là 'government'.",
+        step4_why_wrong: "Chỉ điền 1 từ duy nhất 'government'."
+      },
+
+      // ================= PASSAGE 3: Q27 - Q40 (How to clean a beach) =================
+      {
+        id: 27, passage: 3, type: "YNN",
+        prompt: "In the case of the Prestige, financial loss was avoided.",
+        correct: "NO",
+        step1_trans: "Trong trường hợp của tàu Prestige, tổn thất về tài chính đã được tránh khỏi.",
+        evidence_id: "ev-q27",
+        evidence_quote: "But while each new incident, including that of the Prestige, brings environmental destruction and financial loss, it also improves our understanding of how to deal with oil spills.",
+        evidence_vi: "Nhưng trong khi mỗi sự cố mới, bao gồm cả vụ tàu Prestige, đều gây ra sự tàn phá môi trường và tổn thất tài chính, nó cũng cải thiện sự hiểu biết của chúng ta về cách ứng phó với sự cố tràn dầu.",
+        synonyms: "brings financial loss >< financial loss was avoided",
+        options_analysis: [
+          { label: "Gốc YES", status: "Phương án nhiễu", text: "Trái ngược hoàn toàn với câu dẫn chứng trong đoạn 1." },
+          { label: "Gốc NO", status: "Đáp án đúng", text: "Tác giả khẳng định mỗi vụ tai nạn, bao gồm cả vụ tàu Prestige, đều mang lại tổn thất tài chính ('brings... financial loss')." },
+          { label: "Gốc NOT GIVEN", status: "Phương án nhiễu", text: "Sai vì bài có đề cập trực tiếp đến 'financial loss' trong vụ Prestige." }
+        ],
+        step3_why_right: "Đoạn 1 nêu rõ: '...each new incident, including that of the Prestige, brings environmental destruction and financial loss' (gây ra sự tàn phá môi trường và thiệt hại tài chính). Vì vậy nói tránh được tổn thất tài chính ('financial loss was avoided') là hoàn toàn trái ngược (NO).",
+        step4_why_wrong: "Loại YES và NOT GIVEN vì từ 'brings financial loss' bác bỏ trực tiếp 'financial loss was avoided'."
+      },
+      {
+        id: 28, passage: 3, type: "YNN",
+        prompt: "The ideal solution to oil spills at sea is to stop the oil from reaching the shore.",
+        correct: "YES",
+        step1_trans: "Giải pháp lý tưởng cho các vụ tràn dầu trên biển là ngăn không cho dầu dạt vào bờ.",
+        evidence_id: "ev-q28",
+        evidence_quote: "Oil is much less damaging at sea than on shore, so the best option is to skim the spilled oil off the surface of the water using specially equipped ships. A series of wooden booms floating on the surface of the water can also be used to protect the coastline.",
+        evidence_vi: "Dầu ở ngoài biển ít gây hại hơn nhiều so với khi dạt vào bờ, vì vậy lựa chọn tốt nhất là vớt lớp dầu tràn trên mặt nước bằng các tàu chuyên dụng. Một dãy phao chắn gỗ nổi trên mặt nước cũng có thể được dùng để bảo vệ đường bờ biển.",
+        synonyms: "ideal solution ~ the best option; stop the oil from reaching the shore ~ Oil is much less damaging at sea than on shore... skim the spilled oil / protect the coastline",
+        options_analysis: [
+          { label: "Gốc YES", status: "Đáp án đúng", text: "Vì dầu ít gây hại ngoài biển hơn trên bờ nên cách tốt nhất (best option) là vớt dầu ngay trên mặt biển và chặn bảo vệ bờ biển." },
+          { label: "Gốc NO", status: "Phương án nhiễu", text: "Sai vì thông tin hoàn toàn đồng nhất với quan điểm của tác giả." },
+          { label: "Gốc NOT GIVEN", status: "Phương án nhiễu", text: "Sai vì đoạn 2 giải thích rất rõ giải pháp tối ưu này." }
+        ],
+        step3_why_right: "Đoạn 2 khẳng định dầu ít gây hại ở ngoài biển hơn nhiều so với khi vào bờ ('much less damaging at sea than on shore'), nên phương án tốt nhất ('the best option' = 'The ideal solution') là vớt dầu ngay trên mặt nước và dùng phao chắn bảo vệ bờ biển ('protect the coastline'). Do đó đáp án là YES.",
+        step4_why_wrong: "Loại NO và NOT GIVEN vì câu đầu đoạn 2 xác nhận hoàn toàn nhận định này."
+      },
+      {
+        id: 29, passage: 3, type: "YNN",
+        prompt: "Wooden booms have to be put in place immediately in order to be effective.",
+        correct: "NOT GIVEN",
+        step1_trans: "Phao chắn bằng gỗ phải được lắp đặt ngay lập tức thì mới có hiệu quả.",
+        evidence_id: "ev-q29",
+        evidence_quote: "A series of wooden booms floating on the surface of the water can also be used to protect the coastline. But the sea around the Prestige was too rough for the former, and much of the coast too exposed for booms to work...",
+        evidence_vi: "Một dãy phao chắn bằng gỗ nổi trên mặt nước cũng có thể được sử dụng để bảo vệ đường bờ biển. Nhưng vùng biển quanh tàu Prestige quá động đối với phương pháp đầu, và phần lớn bờ biển lại quá trống trải khiến phao chắn không thể hoạt động...",
+        synonyms: "Không có bất kỳ thông tin nào đề cập đến yếu tố thời gian 'put in place immediately' (lắp đặt ngay lập tức).",
+        options_analysis: [
+          { label: "Gốc YES", status: "Phương án nhiễu", text: "Bẫy suy diễn thực tế: bài không hề nói phải đặt ngay lập tức mới hiệu quả." },
+          { label: "Gốc NO", status: "Phương án nhiễu", text: "Bài không nói đặt muộn vẫn hiệu quả." },
+          { label: "Gốc NOT GIVEN", status: "Đáp án đúng", text: "Đoạn 2 chỉ nói phao chắn không hoạt động được nếu bờ biển quá trống trải (too exposed), không hề nhắc đến việc có phải lắp đặt ngay lập tức (immediately) hay không." }
+        ],
+        step3_why_right: "Đoạn 2 có nhắc đến 'wooden booms' và điều kiện địa hình khiến nó không hiệu quả ('much of the coast too exposed for booms to work'), nhưng hoàn toàn KHÔNG đề cập đến điều kiện thời gian là phải lắp đặt ngay lập tức ('put in place immediately'). Do đó đáp án là NOT GIVEN.",
+        step4_why_wrong: "Không tự suy diễn yếu tố thời gian 'immediately' khi văn bản không nhắc tới."
+      },
+      {
+        id: 30, passage: 3, type: "YNN",
+        prompt: "More action could have been taken to prevent oil from the Prestige reaching the Galician shoreline.",
+        correct: "NO",
+        step1_trans: "Đáng lẽ đã có thể thực hiện thêm nhiều hành động hơn để ngăn dầu từ tàu Prestige dạt vào bờ biển Galicia.",
+        evidence_id: "ev-q30",
+        evidence_quote: "But the sea around the Prestige was too rough for the former, and much of the coast too exposed for booms to work, so there was little that could be done except watch the oil wash up onto the beaches.",
+        evidence_vi: "Nhưng vùng biển xung quanh tàu Prestige quá động đối với phương pháp vớt dầu, và phần lớn bờ biển lại quá trống trải khiến phao chắn không hoạt động được, vì vậy hầu như không thể làm được gì ngoài việc đứng nhìn dầu dạt vào các bãi biển.",
+        synonyms: "there was little that could be done except watch the oil wash up >< More action could have been taken",
+        options_analysis: [
+          { label: "Gốc YES", status: "Phương án nhiễu", text: "Trái ngược hoàn toàn với kết luận ở cuối đoạn 2." },
+          { label: "Gốc NO", status: "Đáp án đúng", text: "Vì biển quá động và bờ biển quá trống trải nên hầu như không thể làm được gì ('there was little that could be done') ngoài việc nhìn dầu trôi vào bờ." },
+          { label: "Gốc NOT GIVEN", status: "Phương án nhiễu", text: "Sai vì tác giả đã khẳng định rõ là không thể làm gì hơn." }
+        ],
+        step3_why_right: "Câu cuối đoạn 2 khẳng định rõ ràng: '...so there was little that could be done except watch the oil wash up onto the beaches' (hầu như không thể làm được gì ngoài việc nhìn dầu dạt vào bãi biển). Nhận định nói 'Đáng lẽ đã có thể làm nhiều hơn' là trái ngược hoàn toàn với ý tác giả -> NO.",
+        step4_why_wrong: "Loại YES và NOT GIVEN vì cụm 'there was little that could be done' trực tiếp bác bỏ 'More action could have been taken'."
+      },
+      {
+        id: 31, passage: 3, type: "YNN",
+        prompt: "In environmental incidents, it is considered more important to protect wild animals than plants.",
+        correct: "NOT GIVEN",
+        step1_trans: "Trong các sự cố môi trường, việc bảo vệ động vật hoang dã được coi là quan trọng hơn so với bảo vệ thực vật.",
+        evidence_id: "ev-q31",
+        evidence_quote: "When oil arrives onshore, the question becomes how best to save affected plants and animals, while minimizing damage to the surrounding ecosystem, without running up a huge bill.",
+        evidence_vi: "Khi dầu dạt vào bờ, câu hỏi đặt ra là làm thế nào tốt nhất để cứu các loài thực vật và động vật bị ảnh hưởng, đồng thời giảm thiểu thiệt hại cho hệ sinh thái xung quanh mà không làm phát sinh chi phí khổng lồ.",
+        synonyms: "save affected plants and animals (không hề so sánh cái nào quan trọng hơn cái nào)",
+        options_analysis: [
+          { label: "Gốc YES", status: "Phương án nhiễu", text: "Bẫy so sánh: bài không hề nói cứu động vật quan trọng hơn cứu thực vật." },
+          { label: "Gốc NO", status: "Phương án nhiễu", text: "Bài không nói chúng quan trọng ngang nhau hay thực vật quan trọng hơn." },
+          { label: "Gốc NOT GIVEN", status: "Đáp án đúng", text: "Bài chỉ nhắc đến việc cứu cả thực vật và động vật ('save affected plants and animals'), không hề có sự so sánh hơn kém ('more important... than')." }
+        ],
+        step3_why_right: "Đoạn 3 chỉ nêu mục tiêu chung là làm sao cứu các loài thực vật và động vật bị ảnh hưởng ('save affected plants and animals'), hoàn toàn KHÔNG so sánh việc bảo vệ động vật hoang dã có quan trọng hơn ('more important... than') thực vật hay không -> NOT GIVEN.",
+        step4_why_wrong: "Đây là bẫy so sánh giả định kinh điển trong bài thi IELTS Reading."
+      },
+      {
+        id: 32, passage: 3, type: "GAP",
+        prompt: "In this process, decisions about environmental incidents are made by specialists, drawing on both their expertise and 32 [BLANK].",
+        correct: "local knowledge",
+        accepted: ["local knowledge"],
+        step1_trans: "Trong quy trình này, các quyết định về sự cố môi trường được đưa ra bởi các chuyên gia, dựa trên cả chuyên môn của họ lẫn kiến thức địa phương (local knowledge).",
+        evidence_id: "ev-q32",
+        evidence_quote: "To decide what to do, specialists combined their own professional experience with local knowledge in an assessment process known as 'net environmental benefit analysis'.",
+        evidence_vi: "Để quyết định phải làm gì, các chuyên gia đã kết hợp kinh nghiệm chuyên môn của chính họ với kiến thức địa phương (local knowledge) trong một quy trình đánh giá được gọi là 'phân tích lợi ích môi trường ròng'.",
+        synonyms: "drawing on both... and ~ combined... with; their expertise ~ their own professional experience",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "local knowledge (n.phr): kiến thức địa phương (tối đa 2 từ)." },
+          { label: "Cấu trúc song hành", status: "Phương án nhiễu", text: "both their expertise (= professional experience) and local knowledge." }
+        ],
+        step3_why_right: "Trong câu đầu đoạn 4, 'their own professional experience' đã được paraphrase thành 'their expertise'. Yếu tố thứ hai được kết hợp ('combined... with' = 'drawing on both... and') chính là 'local knowledge'.",
+        step4_why_wrong: "Điền đủ 2 từ 'local knowledge' để đảm bảo chính xác nghĩa."
+      },
+      {
+        id: 33, passage: 3, type: "GAP",
+        prompt: "The factors that are considered include destruction of the environment, more long-term 33 [BLANK] aspects such as the effect on tourism...",
+        correct: "socio-economic",
+        accepted: ["socio-economic", "socioeconomic"],
+        step1_trans: "Các yếu tố được xem xét bao gồm sự tàn phá môi trường, các khía cạnh kinh tế - xã hội (socio-economic) dài hạn hơn chẳng hạn như tác động đến du lịch...",
+        evidence_id: "ev-q33",
+        evidence_quote: "Less immediate socio-economic repercussions also come into play: local people may rely on shellfish beds, for example, or an affected beach could be a tourist destination.",
+        evidence_vi: "Những hệ lụy kinh tế - xã hội (socio-economic) ít tức thời hơn cũng được đưa vào xem xét: ví dụ như người dân địa phương có thể sống dựa vào các bãi nuôi sò ốc, hoặc bãi biển bị ảnh hưởng có thể là một điểm đến du lịch.",
+        synonyms: "more long-term ~ Less immediate; aspects ~ repercussions; effect on tourism ~ could be a tourist destination",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "socio-economic (adj): thuộc về kinh tế - xã hội (bổ nghĩa cho danh từ 'aspects')." },
+          { label: "Paraphrase", status: "Phương án nhiễu", text: "Less immediate = more long-term; repercussions = aspects." }
+        ],
+        step3_why_right: "Cụm 'more long-term ___ aspects' tương ứng trực tiếp với 'Less immediate socio-economic repercussions', đi kèm ví dụ về du lịch ('tourist destination' = 'effect on tourism'). Do đó tính từ cần điền là 'socio-economic'.",
+        step4_why_wrong: "Lưu ý chỉ điền tính từ 'socio-economic' vì danh từ 'aspects' đã thay thế cho 'repercussions'."
+      },
+      {
+        id: 34, passage: 3, type: "GAP",
+        prompt: "...and a practical matter that may be linked to the 34 [BLANK] of various clean-up methods.",
+        correct: "cost",
+        accepted: ["cost"],
+        step1_trans: "...và một vấn đề thực tế có thể liên quan đến chi phí (cost) của các phương pháp làm sạch khác nhau.",
+        evidence_id: "ev-q34",
+        evidence_quote: "And such practical realities as the cost incurred by a particular clean-up option and how easy it will be to implement are also assessed.",
+        evidence_vi: "Và những thực tế mang tính thực tiễn như chi phí (cost) phát sinh của một phương án làm sạch cụ thể và mức độ dễ dàng thực hiện nó cũng được đánh giá.",
+        synonyms: "a practical matter ~ practical realities; of various clean-up methods ~ incurred by a particular clean-up option",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "cost (n): chi phí (đứng sau mạo từ 'the' và trước giới từ 'of')." },
+          { label: "Ngữ pháp", status: "Phương án nhiễu", text: "the [cost] of various clean-up methods = the cost incurred by a particular clean-up option." }
+        ],
+        step3_why_right: "Cụm 'a practical matter' tương ứng với 'practical realities', và 'of various clean-up methods' tương ứng với 'incurred by a particular clean-up option'. Danh từ chính đứng sau mạo từ 'the' là 'cost'.",
+        step4_why_wrong: "Chỉ điền danh từ 'cost'."
+      },
+      {
+        id: 35, passage: 3, type: "GAP",
+        prompt: "These include the use of high-pressure 35 [BLANK] in Alaska...",
+        correct: "hot water",
+        accepted: ["hot water"],
+        step1_trans: "Những phương pháp này bao gồm việc sử dụng nước nóng (hot water) áp suất cao ở Alaska...",
+        evidence_id: "ev-q35",
+        evidence_quote: "When oil from the Exxon Valdez polluted the Alaskan shoreline in 1989, hot water applied under high pressure was used to scrub the beaches.",
+        evidence_vi: "Khi dầu từ tàu Exxon Valdez làm ô nhiễm bờ biển Alaska vào năm 1989, nước nóng (hot water) phun dưới áp suất cao đã được sử dụng để cọ rửa các bãi biển.",
+        synonyms: "high-pressure [hot water] in Alaska ~ hot water applied under high pressure... Alaskan shoreline",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "hot water (n.phr): nước nóng (được phun dưới áp suất cao ở Alaska)." },
+          { label: "Bẫy thiếu từ", status: "Phương án nhiễu", text: "Nên điền đầy đủ 'hot water' để mô tả đúng phương pháp nhiệt học tại Alaska." }
+        ],
+        step3_why_right: "Đoạn 5 nêu rõ tại bờ biển Alaska năm 1989, người ta đã dùng 'hot water applied under high pressure' (= 'the use of high-pressure hot water in Alaska').",
+        step4_why_wrong: "Điền đủ 2 từ 'hot water' theo chuẩn NO MORE THAN TWO WORDS."
+      },
+      {
+        id: 36, passage: 3, type: "GAP",
+        prompt: "...and of 36 [BLANK] in England, as well as the employment of heavy machinery in France.",
+        correct: "chemical sprays",
+        accepted: ["chemical sprays", "dispersants"],
+        step1_trans: "...và việc sử dụng hóa chất phun xịt (chemical sprays) ở Anh, cũng như việc sử dụng máy móc hạng nặng ở Pháp.",
+        evidence_id: "ev-q36",
+        evidence_quote: "When the Torrey Canyon ran aground off the south coast of England in March 1967, oiled beaches were treated with 10,000 tonnes of chemical sprays.",
+        evidence_vi: "Khi tàu Torrey Canyon mắc cạn ngoài khơi bờ biển phía nam nước Anh vào tháng 3 năm 1967, các bãi biển nhiễm dầu đã được xử lý bằng 10.000 tấn hóa chất phun xịt (chemical sprays).",
+        synonyms: "use of [chemical sprays] in England ~ south coast of England... treated with 10,000 tonnes of chemical sprays",
+        options_analysis: [
+          { label: "Đáp án đúng", status: "Đáp án đúng", text: "chemical sprays (n.phr): hóa chất phun xịt (được sử dụng ở bờ biển nước Anh năm 1967)." },
+          { label: "Ngữ pháp", status: "Phương án nhiễu", text: "Cấu trúc song hành: 'the use of high-pressure hot water in Alaska and of chemical sprays in England'." }
+        ],
+        step3_why_right: "Đoạn 6 nêu rõ khi sự cố xảy ra ở bờ biển phía nam nước Anh ('England'), các bãi biển đã được xử lý bằng 'chemical sprays'. Vì vậy cụm danh từ cần điền sau giới từ 'of' là 'chemical sprays'.",
+        step4_why_wrong: "Không điền quá 2 từ."
+      },
+      {
+        id: 37, passage: 3, type: "MCQ",
+        prompt: "Heavy machinery was used in one part of Galicia",
+        correct: "D",
+        step1_trans: "Máy móc hạng nặng đã được sử dụng ở một khu vực của Galicia nhằm mục đích...",
+        evidence_id: "ev-q37",
+        evidence_quote: "But in one of the areas affected, oil on the surface of the beaches was likely to be washed into the pipe that supplied water to a large fish farm. In the end, the desire to safeguard the farm tipped the balance in favour of building tracks for bulldozers and earthmovers, which scooped up the oil from the beach.",
+        evidence_vi: "Nhưng ở một trong những khu vực bị ảnh hưởng, dầu trên bề mặt bãi biển có nguy cơ bị cuốn vào đường ống cấp nước cho một trang trại nuôi cá lớn. Cuối cùng, mong muốn bảo vệ trang trại đã làm nghiêng cán cân sang hướng ủng hộ việc làm đường cho máy ủi và máy xúc đất vào xúc dầu khỏi bãi biển.",
+        synonyms: "protect the local farming industry ~ safeguard the large fish farm; heavy machinery ~ bulldozers and earthmovers",
+        options: [
+          { key: "A", text: "to improve the appearance of the landscape.", vi: "để cải thiện diện mạo của cảnh quan." },
+          { key: "B", text: "to purify domestic water supplies.", vi: "để làm sạch nguồn cung cấp nước sinh hoạt." },
+          { key: "C", text: "to allow access to agricultural areas.", vi: "để cho phép tiếp cận các khu vực nông nghiệp trồng trọt." },
+          { key: "D", text: "to protect the local farming industry.", vi: "để bảo vệ ngành nuôi trồng địa phương (trang trại nuôi cá)." }
+        ],
+        options_analysis: [
+          { label: "Gốc A", status: "Phương án nhiễu", text: "Ngược nghĩa vì việc làm đường cho máy hạng nặng bị lo ngại là sẽ phá hỏng cảnh quan ('harm the surrounding landscape')." },
+          { label: "Gốc B", status: "Phương án nhiễu", text: "Bẫy từ 'pipe that supplied water': đây là ống dẫn nước cho trại nuôi cá (fish farm), không phải nước sinh hoạt gia đình (domestic water)." },
+          { label: "Gốc C", status: "Phương án nhiễu", text: "Người ta mở đường đến bãi biển bị nhiễm dầu nặng chứ không phải mở đường vào khu đất trồng trọt." },
+          { label: "Gốc D", status: "Đáp án đúng", text: "Khớp hoàn toàn với mục đích bảo vệ trang trại nuôi cá lớn ('the desire to safeguard the large fish farm' = 'protect the local farming industry')." }
+        ],
+        step3_why_right: "Đoạn 7 giải thích rằng dù sợ làm hỏng cảnh quan, nhưng vì dầu có nguy cơ tràn vào ống cấp nước cho một trang trại nuôi cá lớn ('a large fish farm'), mong muốn bảo vệ trang trại đó ('safeguard the farm' = 'protect the local farming industry') đã khiến người ta quyết định đưa máy ủi và máy xúc ('heavy machinery') vào.",
+        step4_why_wrong: "Loại A vì làm đường gây hại cảnh quan; loại B vì không phải nước sinh hoạt (domestic); loại C vì mở đường ra bãi biển chứ không phải vào đất nông nghiệp."
+      },
+      {
+        id: 38, passage: 3, type: "MCQ",
+        prompt: "The main lesson learned from the Amoco Cadiz disaster was that in environmentally sensitive areas",
+        correct: "A",
+        step1_trans: "Bài học chính rút ra từ thảm họa tàu Amoco Cadiz là ở những khu vực nhạy cảm về môi trường...",
+        evidence_id: "ev-q38",
+        evidence_quote: "After the Amoco Cadiz disaster in 1978... heavy equipment was sent in to some polluted salt-marshes, where it scraped up the top half-metre of sediment. Twelve years later, these areas had still not recovered, whereas the oiled marshes that went uncleaned seemed in good shape.",
+        evidence_vi: "Sau thảm họa Amoco Cadiz năm 1978... thiết bị hạng nặng đã được đưa vào một số đầm lầy nước mặn bị ô nhiễm và cạo đi nửa mét trầm tích trên cùng. Mười hai năm sau, những khu vực này vẫn chưa phục hồi, trong khi những đầm lầy nhiễm dầu không được dọn rửa thì dường như lại ở trong tình trạng tốt.",
+        synonyms: "attempts to clean up oil may prevent effective recovery ~ areas cleaned with heavy equipment had still not recovered after 12 years, whereas uncleaned marshes seemed in good shape",
+        options: [
+          { key: "A", text: "attempts to clean up oil may prevent effective recovery.", vi: "những nỗ lực dọn sạch dầu có thể cản trở sự phục hồi hiệu quả." },
+          { key: "B", text: "more than twenty years is needed for the land to recover.", vi: "cần hơn hai mươi năm để vùng đất phục hồi." },
+          { key: "C", text: "thorough treatment is needed if areas are to recover.", vi: "cần phải xử lý triệt để nếu muốn các khu vực đó phục hồi." },
+          { key: "D", text: "every trace of sediment must be removed for a full recovery.", vi: "mọi dấu vết trầm tích phải được loại bỏ để phục hồi hoàn toàn." }
+        ],
+        options_analysis: [
+          { label: "Gốc A", status: "Đáp án đúng", text: "Những đầm lầy bị máy móc cạo trầm tích để làm sạch thì sau 12 năm vẫn chưa hồi phục, trong khi những nơi để nguyên không dọn lại hồi phục tốt." },
+          { label: "Gốc B", status: "Phương án nhiễu", text: "Bẫy con số: bài nhắc 'Twelve years later' (12 năm sau), không phải hơn 20 năm." },
+          { label: "Gốc C", status: "Phương án nhiễu", text: "Ngược nghĩa hoàn toàn vì chính việc xử lý mạnh tay đã làm đầm lầy không thể phục hồi." },
+          { label: "Gốc D", status: "Phương án nhiễu", text: "Ngược nghĩa vì việc cạo lớp trầm tích (sediment) chính là sai lầm khiến hệ sinh thái hỏng nặng." }
+        ],
+        step3_why_right: "Đoạn 8 đối chiếu rõ: những đầm lầy nước mặn ('environmentally sensitive areas') được đưa máy móc vào cạo trầm tích làm sạch thì 12 năm sau vẫn chưa hồi phục ('had still not recovered'), còn những nơi không dọn rửa ('went uncleaned') lại ở trạng thái tốt. Điều đó chứng tỏ nỗ lực làm sạch có thể cản trở sự phục hồi tự nhiên (Đáp án A).",
+        step4_why_wrong: "Loại B vì sai số năm (12 năm chứ không phải 20 năm); loại C và D vì hoàn toàn trái ngược với bài học thực tế."
+      },
+      {
+        id: 39, passage: 3, type: "MCQ",
+        prompt: "The writer says that at Carnota and similar beaches nearby",
+        correct: "B",
+        step1_trans: "Tác giả nói rằng tại Carnota và các bãi biển tương tự gần đó...",
+        evidence_id: "ev-q39",
+        evidence_quote: "Once workers there had done all they could, stubborn patches still remained on rocks and in crevices. A possibility was to move oily rocks down the beach into the surf since this accelerates the natural cleaning process, as can 'flushing'—i.e. pumping seawater over the shore and sifting the oil out of the run-off.",
+        evidence_vi: "Một khi những người làm việc ở đó đã làm tất cả những gì có thể, những mảng dầu cứng đầu vẫn bám lại trên đá và trong các khe nứt. Một khả năng là di chuyển những tảng đá dính dầu xuống bãi biển vào vùng sóng vỗ vì việc này đẩy nhanh quá trình làm sạch tự nhiên, tương tự như phương pháp 'xối rửa' — tức là bơm nước biển tưới lên bờ và lọc lấy dầu từ dòng nước chảy xuống.",
+        synonyms: "sea water can be used to remove patches of oil on the rocks ~ move oily rocks into the surf / pumping seawater over the shore to accelerate cleaning of stubborn patches on rocks",
+        options: [
+          { key: "A", text: "some areas have been completely cleared of oil traces.", vi: "một số khu vực đã được làm sạch hoàn toàn mọi dấu vết của dầu." },
+          { key: "B", text: "sea water can be used to remove patches of oil on the rocks.", vi: "nước biển có thể được sử dụng để loại bỏ các mảng dầu bám trên đá." },
+          { key: "C", text: "the large pieces of rock have to be cleaned using machinery.", vi: "những tảng đá lớn phải được làm sạch bằng máy móc." },
+          { key: "D", text: "only highly skilled people can help in the cleaning operation.", vi: "chỉ những người có tay nghề cao mới có thể giúp sức trong chiến dịch làm sạch." }
+        ],
+        options_analysis: [
+          { label: "Gốc A", status: "Phương án nhiễu", text: "Sai vì bài nói sau khi làm hết sức, những mảng dầu cứng đầu vẫn còn bám lại ('stubborn patches still remained')." },
+          { label: "Gốc B", status: "Đáp án đúng", text: "Người ta có thể đưa đá dính dầu xuống sóng biển (surf) hoặc bơm nước biển (pumping seawater) tưới lên bờ để làm sạch dầu trên đá." },
+          { label: "Gốc C", status: "Phương án nhiễu", text: "Không có thông tin nói phải dùng máy móc để rửa các tảng đá lớn ở Carnota." },
+          { label: "Gốc D", status: "Phương án nhiễu", text: "Sai vì ở đoạn 9, những người tham gia dọn bằng tay là các tình nguyện viên và binh lính ('volunteers and soldiers'), không phải chỉ thợ tay nghề cao." }
+        ],
+        step3_why_right: "Ở đoạn 9 và đầu đoạn 10, tại Carnota và các bãi biển lân cận ('workers there'), để xử lý các mảng dầu cứng đầu bám trên đá ('stubborn patches on rocks'), người ta có thể dùng sóng biển ('surf') hoặc bơm nước biển xối rửa ('pumping seawater over the shore') -> khớp hoàn toàn với Đáp án B.",
+        step4_why_wrong: "Loại A vì vẫn còn vết dầu cứng đầu; loại C vì không dùng máy móc; loại D vì tình nguyện viên đều làm được."
+      },
+      {
+        id: 40, passage: 3, type: "MCQ",
+        prompt: "Which of the following best summarizes the views put forward by the writer in this passage?",
+        correct: "B",
+        step1_trans: "Câu nào sau đây tóm tắt đúng nhất quan điểm được tác giả đưa ra trong bài đọc này?",
+        evidence_id: "ev-q40",
+        evidence_quote: "Every intensive clean-up option has its drawbacks... But as the coastline became cleaner, the clean-up started to cost more for progressively less reward and more environmental damage. The Galicians were then faced with perhaps their most difficult decision: when to stop.",
+        evidence_vi: "Mỗi phương án làm sạch chuyên sâu đều có nhược điểm của nó... Nhưng khi đường bờ biển trở nên sạch hơn, việc dọn dẹp bắt đầu tốn kém hơn trong khi hiệu quả thu lại ngày càng ít đi và thiệt hại môi trường lại tăng thêm. Người dân Galicia khi đó phải đối mặt với quyết định khó khăn nhất: khi nào thì dừng lại.",
+        synonyms: "no single or complete solution ~ Every intensive clean-up option has its drawbacks / net environmental benefit analysis / when to stop",
+        options: [
+          { key: "A", text: "It would be preferable to prevent oil spills from happening in the first place.", vi: "Sẽ tốt hơn nếu ngăn chặn sự cố tràn dầu xảy ra ngay từ đầu." },
+          { key: "B", text: "There is no single or complete solution to the problem of oil spills.", vi: "Không có một giải pháp đơn lẻ hay triệt để hoàn toàn nào cho vấn đề tràn dầu." },
+          { key: "C", text: "The main factor preventing the effective clearing of oil spills is lack of funding.", vi: "Yếu tố chính cản trở việc dọn sạch dầu tràn hiệu quả là sự thiếu hụt kinh phí." },
+          { key: "D", text: "Environmental considerations should be a low priority when coping with oil spills.", vi: "Các cân nhắc về môi trường nên được xếp ưu tiên thấp khi ứng phó với tràn dầu." }
+        ],
+        options_analysis: [
+          { label: "Gốc A", status: "Phương án nhiễu", text: "Bài đọc bàn về 'How to clean a beach' (Cách xử lý sau khi dầu đã tràn), không bàn về các biện pháp phòng ngừa tàu chở dầu gặp nạn." },
+          { label: "Gốc B", status: "Đáp án đúng", text: "Xuyên suốt bài đọc, tác giả chỉ ra mọi phương pháp đều có mặt trái (nước nóng, hóa chất, máy xúc, làm thủ công) và không thể làm sạch 100% mà phải cân nhắc khi nào nên dừng lại." },
+          { label: "Gốc C", status: "Phương án nhiễu", text: "Chi phí chỉ là một trong nhiều yếu tố cân nhắc chứ không phải nguyên nhân chính cản trở việc làm sạch." },
+          { label: "Gốc D", status: "Phương án nhiễu", text: "Ngược nghĩa hoàn toàn vì bảo vệ hệ sinh thái ('minimizing damage to the surrounding ecosystem') luôn là trọng tâm." }
+        ],
+        step3_why_right: "Xuyên suốt toàn bài, tác giả phân tích rằng không có một phương pháp duy nhất nào áp dụng được cho mọi nơi (phải phân tích lợi ích ròng cho từng địa hình, mọi phương pháp mạnh đều có tác dụng phụ, và đến cuối cùng vẫn còn vết dầu trên đá buộc phải quyết định khi nào dừng lại). Vì vậy 'There is no single or complete solution to the problem of oil spills' (Đáp án B) tóm tắt chuẩn xác nhất thông điệp toàn bài.",
+        step4_why_wrong: "Loại A vì lạc chủ đề sang phòng ngừa tai nạn; loại C vì phóng đại yếu tố tiền bạc; loại D vì trái ngược hoàn toàn với tinh thần bảo vệ môi trường của bài."
+      }
+    ];
+
+    /* ============================================================================
+       5. APPLICATION STATE & RENDERING ENGINE
+       ============================================================================ */
+    let currentPassage = 1;
+    const userAnswers = {}; // { qId: { value, isCorrect } }
+    let isLocked = false;
+    let isHighlightEnabled = true;
+
+    function switchPassage(pNum) {
+      currentPassage = pNum;
+      // Update Tab styles
+      [1, 2, 3].forEach(n => {
+        const btn = document.getElementById(`tab-p${n}`);
+        if (n === pNum) {
+          btn.className = "btn-3d px-3.5 py-2 text-xs font-black rounded-xl bg-purple-600 text-white shadow-[0_4px_0_#581c87]";
+        } else {
+          btn.className = "btn-3d px-3.5 py-2 text-xs font-black rounded-xl bg-slate-100 text-slate-700 border border-slate-300 shadow-[0_4px_0_#cbd5e1]";
+        }
+      });
+
+      const rangeText = pNum === 1 ? "QUESTIONS 1–13" : (pNum === 2 ? "QUESTIONS 14–26" : "QUESTIONS 27–40");
+      document.getElementById('leftBadge').innerText = `READING PASSAGE ${pNum}`;
+      document.getElementById('rightBadge').innerText = `EXERCISES: ${rangeText}`;
+
+      renderReadingPassage(pNum);
+      renderExercises(pNum);
+    }
+
+    function renderReadingPassage(pNum) {
+      const data = passagesData[pNum];
+      const pane = document.getElementById('readingPane');
+
+      const paragraphsHTML = data.paragraphs.map((p, idx) => `
+        <div class="p-4 rounded-2xl bg-slate-50/80 border border-slate-200 hover:border-purple-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-black text-purple-700 uppercase tracking-wider bg-purple-100 px-2.5 py-0.5 rounded-lg">${p.label}</span>
+            <button onclick="toggleTrans('trans-${pNum}-${idx}')" class="text-xs font-extrabold text-teal-800 bg-teal-100 hover:bg-teal-200 px-3 py-1 rounded-xl transition shadow-sm">
+              Mở dịch đoạn này 🌟
+            </button>
+          </div>
+          <p class="text-slate-800 leading-relaxed">${p.en}</p>
+          <div id="trans-${pNum}-${idx}" class="hidden mt-3 p-3.5 rounded-xl bg-teal-50/90 border border-teal-200 text-teal-950 text-xs font-semibold leading-relaxed">
+            <strong class="text-teal-800 block mb-1">📖 Bản dịch tiếng Việt (${p.label}):</strong>
+            ${p.vi}
+          </div>
+        </div>
+      `).join('');
+
+      const glossaryHTML = `
+        <div class="mt-8 pt-5 border-t-2 border-dashed border-purple-300">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-sm font-black text-purple-900 uppercase flex items-center gap-2">
+              <span>📚 BẢNG TỪ VỰNG HỌC THUẬT PASSAGE ${pNum} (ACADEMIC GLOSSARY B2–C2)</span>
+            </h3>
+            <span class="text-[11px] font-extrabold bg-purple-100 text-purple-800 px-2.5 py-0.5 rounded-full">${data.glossary.length} từ trọng tâm</span>
+          </div>
+          <div class="overflow-x-auto rounded-2xl border border-purple-200 shadow-sm">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-purple-700 text-white uppercase text-[10px]">
+                <tr>
+                  <th class="py-2.5 px-3">Từ vựng</th>
+                  <th class="py-2.5 px-2">Loại từ</th>
+                  <th class="py-2.5 px-3">Nghĩa tiếng Việt</th>
+                  <th class="py-2.5 px-3">Paraphrase / Synonym trong bài</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 bg-white">
+                ${data.glossary.map((g, i) => `
+                  <tr class="${i % 2 === 0 ? 'bg-white' : 'bg-purple-50/40'}">
+                    <td class="py-2 px-3 font-black text-purple-900">${g.word}</td>
+                    <td class="py-2 px-2 italic text-slate-500 font-bold">${g.pos}</td>
+                    <td class="py-2 px-3 font-semibold text-slate-800">${g.vi}</td>
+                    <td class="py-2 px-3 font-bold text-teal-700">${g.syn}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+
+      pane.innerHTML = `
+        <div class="border-b-2 border-purple-100 pb-3 mb-4">
+          <span class="text-[11px] font-black text-purple-600 uppercase tracking-widest">${data.title}</span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900 mt-0.5">${data.heading}</h2>
+          <p class="text-xs font-bold text-slate-500 italic mt-1">${data.subtitle}</p>
+        </div>
+        <div class="space-y-4">
+          ${paragraphsHTML}
+        </div>
+        ${glossaryHTML}
+      `;
+      pane.scrollTop = 0;
+    }
+
+    function toggleTrans(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('hidden');
+    }
+
+    /* ============================================================================
+       6. RENDER EXERCISES FOR CURRENT PASSAGE
+       ============================================================================ */
+    function renderExercises(pNum) {
+      const pane = document.getElementById('exercisePane');
+      const pQuestions = questionsDB.filter(q => q.passage === pNum);
+
+      let html = '';
+
+      if (pNum === 1) {
+        html += renderSectionBanner("Questions 1–5 • TRUE / FALSE / NOT GIVEN", "Choose TRUE if the statement agrees with the information, FALSE if it contradicts, or NOT GIVEN if there is no information.", "purple");
+        pQuestions.filter(q => q.id <= 5).forEach(q => { html += renderQuestionCard(q); });
+
+        html += renderSectionBanner("Questions 6–13 • Sentence Completion (ONE WORD ONLY)", "Complete the sentences below. Write ONE WORD ONLY from the passage for each answer.", "teal");
+        pQuestions.filter(q => q.id >= 6).forEach(q => { html += renderQuestionCard(q); });
+      } else if (pNum === 2) {
+        html += renderSectionBanner("Questions 14–19 • Matching Headings (i–vii)", "Choose the correct heading for each paragraph (Paragraphs A–F) from the list of headings (i–vii) below.", "purple");
+        pQuestions.filter(q => q.id >= 14 && q.id <= 19).forEach(q => { html += renderQuestionCard(q); });
+
+        html += renderSectionBanner("Questions 20–23 • Matching People with Opinions (A–G)", "Look at the following people (Questions 20–23) and match each person with the correct opinion, A–G.", "amber");
+        pQuestions.filter(q => q.id >= 20 && q.id <= 23).forEach(q => { html += renderQuestionCard(q); });
+
+        html += renderSectionBanner("Questions 24–26 • Summary Completion (ONE WORD ONLY)", "Complete the summary 'What recent history tells us about recycling'. Write ONE WORD ONLY from the passage for each answer.", "teal");
+        pQuestions.filter(q => q.id >= 24).forEach(q => { html += renderQuestionCard(q); });
+      } else if (pNum === 3) {
+        html += renderSectionBanner("Questions 27–31 • YES / NO / NOT GIVEN", "Choose YES if the statement agrees with the claims of the writer, NO if it contradicts, or NOT GIVEN if it is impossible to say.", "purple");
+        pQuestions.filter(q => q.id >= 27 && q.id <= 31).forEach(q => { html += renderQuestionCard(q); });
+
+        html += renderSectionBanner("Questions 32–36 • Summary Completion (NO MORE THAN TWO WORDS)", "Complete the summary 'Net environmental benefit analysis'. Write NO MORE THAN TWO WORDS from the passage for each answer.", "teal");
+        pQuestions.filter(q => q.id >= 32 && q.id <= 36).forEach(q => { html += renderQuestionCard(q); });
+
+        html += renderSectionBanner("Questions 37–40 • Multiple Choice (A, B, C or D)", "Choose the correct letter, A, B, C or D. (Thứ tự đáp án được đảo ngẫu nhiên bằng shuffleArray)", "amber");
+        pQuestions.filter(q => q.id >= 37).forEach(q => { html += renderQuestionCard(q); });
+      }
+
+      // Navigation footer between passages
+      html += `
+        <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
+          ${pNum > 1 ? `<button onclick="switchPassage(${pNum - 1})" class="btn-3d px-4 py-2.5 rounded-xl bg-slate-200 text-slate-800 text-xs font-black shadow-[0_4px_0_#94a3b8]">⬅ Quay lại Passage ${pNum - 1}</button>` : `<div></div>`}
+          ${pNum < 3 ? `<button onclick="switchPassage(${pNum + 1})" class="btn-3d px-5 py-2.5 rounded-xl bg-purple-600 text-white text-xs font-black shadow-[0_4px_0_#4c1d95]">Chuyển sang Passage ${pNum + 1} ➡</button>` : `<button onclick="openSubmitModal()" class="btn-3d px-6 py-2.5 rounded-xl bg-emerald-500 text-white text-xs font-black shadow-[0_4px_0_#047857]">🏆 NỘP BÀI & CHẤM ĐIỂM IELTS</button>`}
+        </div>
+      `;
+
+      pane.innerHTML = html;
+      pane.scrollTop = 0;
+
+      // Restore answered state if user already answered questions in this passage
+      pQuestions.forEach(q => {
+        if (userAnswers[q.id]) {
+          restoreQuestionState(q);
+        }
+      });
+    }
+
+    function renderSectionBanner(title, desc, color) {
+      const bgMap = {
+        purple: "bg-purple-50 border-purple-200 text-purple-900",
+        teal: "bg-teal-50 border-teal-200 text-teal-900",
+        amber: "bg-amber-50 border-amber-200 text-amber-900"
+      };
+      return `
+        <div class="p-3.5 rounded-2xl border-2 ${bgMap[color]}">
+          <h3 class="text-xs sm:text-sm font-black uppercase">${title}</h3>
+          <p class="text-xs opacity-85 font-semibold mt-0.5">${desc}</p>
+        </div>
+      `;
+    }
+
+    function renderQuestionCard(q) {
+      let interactionHTML = '';
+
+      if (q.type === "TFN" || q.type === "YNN") {
+        const choices = q.type === "TFN" ? ["TRUE", "FALSE", "NOT GIVEN"] : ["YES", "NO", "NOT GIVEN"];
+        interactionHTML = `
+          <div class="flex flex-wrap items-center gap-2.5 mt-3" id="ctrl-q${q.id}">
+            <select onchange="handleSelectAnswer(${q.id}, this.value)" id="select-q${q.id}" class="text-xs font-black bg-purple-50 text-purple-900 border-2 border-purple-300 rounded-xl px-3 py-2 focus:outline-none">
+              <option value="">-- Chọn đáp án (${choices.join(' / ')}) --</option>
+              ${choices.map(c => `<option value="${c}">${c}</option>`).join('')}
+            </select>
+            <div class="flex gap-1.5">
+              ${choices.map(c => `
+                <button type="button" onclick="handleSelectAnswer(${q.id}, '${c}')" data-val="${c}" class="btn-3d choice-card px-3 py-1.5 text-xs font-black text-slate-700">
+                  ${c}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      } else if (q.type === "GAP") {
+        const parts = q.prompt.split('[BLANK]');
+        const wordLimitHint = q.passage === 3 ? "Nhập tối đa 2 từ..." : "Nhập 1 từ duy nhất...";
+        interactionHTML = `
+          <div class="mt-2 text-sm font-bold text-slate-800 leading-relaxed">
+            ${parts[0]}
+            <input type="text" id="input-q${q.id}" placeholder="${wordLimitHint}" onkeydown="if(event.key==='Enter') handleGapCheck(${q.id})" class="mx-1 px-3 py-1.5 w-48 text-xs font-black text-purple-900 bg-purple-50 border-2 border-purple-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 text-center shadow-inner">
+            ${parts[1] || ''}
+            <button type="button" onclick="handleGapCheck(${q.id})" class="btn-3d ml-2 px-3.5 py-1.5 bg-teal-600 hover:bg-teal-500 text-white text-xs font-black rounded-xl shadow-[0_3px_0_#0f766e]">
+              Check ✓
+            </button>
+          </div>
+        `;
+      } else if (q.type === "MATCH") {
+        interactionHTML = `
+          <div class="mt-3 flex items-center gap-2">
+            <select onchange="handleSelectAnswer(${q.id}, this.value)" id="select-q${q.id}" class="text-xs font-black bg-amber-50 text-amber-950 border-2 border-amber-400 rounded-xl px-3.5 py-2 focus:outline-none w-full sm:w-auto">
+              <option value="">-- Chọn đáp án đúng --</option>
+              ${q.optionsList.map(opt => {
+                const key = opt.split(/[ .]/)[0];
+                return `<option value="${key}">${opt}</option>`;
+              }).join('')}
+            </select>
+          </div>
+        `;
+      } else if (q.type === "MCQ") {
+        const shuffled = shuffleArray(q.options);
+        interactionHTML = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3" id="mcq-grid-q${q.id}">
+            ${shuffled.map(opt => `
+              <div onclick="handleMCQAnswer(${q.id}, '${opt.key}')" data-key="${opt.key}" class="choice-card p-3.5 flex items-center justify-between gap-2">
+                <div class="flex items-start gap-2.5">
+                  <span class="badge-letter w-7 h-7 rounded-lg bg-slate-100 text-slate-700 font-black text-xs flex items-center justify-center shrink-0 mt-0.5">${opt.key}</span>
+                  <span class="text-xs font-bold leading-snug">${opt.text}</span>
+                </div>
+                <span class="right-tag hidden shrink-0 px-2.5 py-1 rounded-full bg-[#00D26A] text-white font-black text-[10px] tracking-wide shadow-sm">✓ ĐÁP ÁN ĐÚNG</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      return `
+        <div class="p-4 rounded-2xl bg-white border-2 border-slate-200 shadow-sm hover:border-purple-200 transition" id="qcard-${q.id}">
+          <div class="flex items-start gap-2.5">
+            <span class="w-7 h-7 rounded-xl bg-purple-600 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-sm">${q.id}</span>
+            <div class="flex-1">
+              ${q.type !== "GAP" ? `<p class="text-xs sm:text-sm font-extrabold text-slate-800 leading-snug">${q.prompt}</p>` : ''}
+              ${interactionHTML}
+            </div>
+          </div>
+          <div id="exp-q${q.id}" class="hidden"></div>
+        </div>
+      `;
+    }
+
+    /* ============================================================================
+       7. ANSWER HANDLERS & 4-STEP DETAILED EXPLANATION BUILDER (SCREENSHOT STYLE)
+       ============================================================================ */
+    function handleSelectAnswer(qId, val) {
+      if (isLocked || !val) return;
+      const q = questionsDB.find(x => x.id === qId);
+      const isCorrect = val.toUpperCase() === q.correct.toUpperCase();
+      userAnswers[qId] = { value: val, isCorrect };
+
+      if (isCorrect) { playCorrectSound(); fireConfetti(); }
+      else { playWrongSound(); }
+
+      restoreQuestionState(q);
+      updateProgressUI();
+    }
+
+    function handleGapCheck(qId) {
+      if (isLocked) return;
+      const input = document.getElementById(`input-q${qId}`);
+      if (!input) return;
+      const raw = input.value.trim();
+      if (!raw) { input.focus(); return; }
+
+      const q = questionsDB.find(x => x.id === qId);
+      const isCorrect = q.accepted.some(a => a.toLowerCase() === raw.toLowerCase());
+      userAnswers[qId] = { value: raw, isCorrect };
+
+      if (isCorrect) { playCorrectSound(); fireConfetti(); }
+      else { playWrongSound(); }
+
+      restoreQuestionState(q);
+      updateProgressUI();
+    }
+
+    function handleMCQAnswer(qId, chosenKey) {
+      if (isLocked) return;
+      const q = questionsDB.find(x => x.id === qId);
+      const isCorrect = chosenKey === q.correct;
+      userAnswers[qId] = { value: chosenKey, isCorrect };
+
+      if (isCorrect) { playCorrectSound(); fireConfetti(); }
+      else { playWrongSound(); }
+
+      restoreQuestionState(q);
+      updateProgressUI();
+    }
+
+    function restoreQuestionState(q) {
+      const saved = userAnswers[q.id];
+      if (!saved) return;
+
+      if (q.type === "TFN" || q.type === "YNN") {
+        const sel = document.getElementById(`select-q${q.id}`);
+        if (sel) {
+          sel.value = saved.value;
+          sel.className = `text-xs font-black rounded-xl px-3 py-2 border-2 ${saved.isCorrect ? 'bg-emerald-500 text-white border-emerald-600' : 'bg-rose-500 text-white border-rose-600'}`;
+        }
+        const ctrl = document.getElementById(`ctrl-q${q.id}`);
+        if (ctrl) {
+          ctrl.querySelectorAll('button').forEach(b => {
+            const bVal = b.getAttribute('data-val');
+            b.classList.remove('correct-choice', 'wrong-choice');
+            if (bVal === q.correct) b.classList.add('correct-choice');
+            else if (bVal === saved.value && !saved.isCorrect) b.classList.add('wrong-choice');
+          });
+        }
+      } else if (q.type === "GAP") {
+        const input = document.getElementById(`input-q${q.id}`);
+        if (input) {
+          input.value = saved.value;
+          input.className = `mx-1 px-3 py-1.5 w-44 text-xs font-black rounded-xl text-center border-2 ${saved.isCorrect ? 'bg-emerald-100 text-emerald-900 border-emerald-500' : 'bg-rose-100 text-rose-900 border-rose-500'}`;
+        }
+      } else if (q.type === "MATCH") {
+        const sel = document.getElementById(`select-q${q.id}`);
+        if (sel) {
+          sel.value = saved.value;
+          sel.className = `text-xs font-black rounded-xl px-3.5 py-2 border-2 ${saved.isCorrect ? 'bg-emerald-500 text-white border-emerald-600' : 'bg-rose-500 text-white border-rose-600'}`;
+        }
+      } else if (q.type === "MCQ") {
+        const grid = document.getElementById(`mcq-grid-q${q.id}`);
+        if (grid) {
+          grid.querySelectorAll('.choice-card').forEach(card => {
+            const key = card.getAttribute('data-key');
+            const badge = card.querySelector('.badge-letter');
+            const rightTag = card.querySelector('.right-tag');
+            card.classList.remove('correct-choice', 'wrong-choice');
+            rightTag.classList.add('hidden');
+
+            if (key === q.correct) {
+              card.classList.add('correct-choice');
+              badge.className = "badge-letter w-7 h-7 rounded-lg bg-[#00D26A] text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5";
+              rightTag.classList.remove('hidden');
+            } else if (key === saved.value && !saved.isCorrect) {
+              card.classList.add('wrong-choice');
+              badge.className = "badge-letter w-7 h-7 rounded-lg bg-[#FF4757] text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5";
+            }
+          });
+        }
+      }
+
+      // Render the 4-Step Explanation Box (Matching Screenshot 100%)
+      const expEl = document.getElementById(`exp-q${q.id}`);
+      if (expEl) {
+        expEl.innerHTML = buildDetailedExplanationHTML(q, saved);
+        expEl.classList.remove('hidden');
+      }
+    }
+
+    function buildDetailedExplanationHTML(q, saved) {
+      const step2Cards = q.options_analysis.map(item => {
+        const isRightOption = item.status === "Đáp án đúng";
+        const badgeClass = isRightOption
+          ? "bg-emerald-100 text-emerald-800 border border-emerald-300"
+          : "bg-rose-100 text-rose-700 border border-rose-200";
+        return `
+          <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-sm text-xs leading-relaxed">
+            <span class="font-black text-blue-700 mr-1">${item.label}:</span>
+            <span class="inline-block px-2 py-0.5 rounded-md font-extrabold text-[10px] mr-1 ${badgeClass}">${item.status}</span>
+            <span class="text-slate-700 font-semibold">${item.text}</span>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="explanation-box space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs sm:text-sm font-black text-rose-600 flex items-center gap-1.5">
+              ⚡ GIẢI THÍCH CHI TIẾT
+            </span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-black ${saved.isCorrect ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
+              ${saved.isCorrect ? '✓ Bạn đã làm đúng!' : `✕ Đáp án đúng: ${q.correct}`}
+            </span>
+          </div>
+
+          <!-- Bước 1: Dịch nghĩa toàn câu -->
+          <div class="step1-box text-xs leading-relaxed">
+            <strong class="text-slate-900">💬 Bước 1 - Dịch nghĩa toàn câu:</strong>
+            <span class="text-slate-800 font-semibold ml-1">"${q.step1_trans}"</span>
+          </div>
+
+          <!-- Dẫn chứng chuẩn chỉ trong đoạn văn + Nút định vị -->
+          <div class="p-3 rounded-xl bg-purple-50/90 border border-purple-200 text-xs space-y-1.5">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <strong class="text-purple-900">🎯 DẪN CHỨNG CHUẨN CHỈ TRONG ĐOẠN VĂN:</strong>
+              <button type="button" onclick="locateEvidenceInPassage(${q.passage}, '${q.evidence_id}')" class="btn-3d px-3 py-1 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-black text-[11px] shadow-[0_2px_0_#4c1d95] flex items-center gap-1">
+                <i class="fa-solid fa-location-crosshairs"></i> Định vị câu dẫn chứng trong bài
+              </button>
+            </div>
+            <p class="italic text-slate-800 bg-white p-2 rounded-lg border border-purple-100 font-semibold">"${q.evidence_quote}"</p>
+            <p class="text-slate-700"><strong>📖 Dịch câu dẫn chứng:</strong> ${q.evidence_vi}</p>
+            <p class="text-teal-800 font-bold"><strong>🔗 Cụm từ đồng nghĩa (Synonyms / Paraphrase):</strong> <code class="bg-teal-100 px-1.5 py-0.5 rounded text-teal-900">${q.synonyms}</code></p>
+          </div>
+
+          <!-- Bước 2: Phân tích từ vựng & dịch nghĩa các phương án -->
+          <div>
+            <p class="text-xs font-black text-slate-800 mb-2">Bước 2 - Phân tích từ vựng & dịch nghĩa các phương án:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              ${step2Cards}
+            </div>
+          </div>
+
+          <!-- Bước 3: TẠI SAO ĐÚNG? -->
+          <div class="step3-box text-xs leading-relaxed">
+            <strong class="font-black">Bước 3 - ✅ TẠI SAO ĐÚNG?</strong>
+            <span class="inline-block bg-amber-200 text-amber-950 font-black px-2 py-0.5 rounded text-[11px] mx-1">Dẫn chứng & Paraphrase:</span>
+            <span class="font-bold">${q.step3_why_right}</span>
+          </div>
+
+          <!-- Bước 4: TẠI SAO CÁC ĐÁP ÁN CÒN LẠI SAI? -->
+          <div class="step4-box text-xs leading-relaxed">
+            <strong class="font-black">Bước 4 - ❌ TẠI SAO CÁC ĐÁP ÁN CÒN LẠI SAI?</strong>
+            <span class="font-semibold ml-1">${q.step4_why_wrong}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function locateEvidenceInPassage(pNum, evidenceId) {
+      if (currentPassage !== pNum) {
+        switchPassage(pNum);
+      }
+      setTimeout(() => {
+        const el = document.getElementById(evidenceId);
+        if (el) {
+          document.querySelectorAll('.evidence-active').forEach(node => node.classList.remove('evidence-active'));
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.add('evidence-active');
+        }
+      }, 80);
+    }
+
+    /* ============================================================================
+       8. PROGRESS BAR, TIMER (20:00), HIGHLIGHT, AND IELTS BAND SCORE MODAL
+       ============================================================================ */
+    function updateProgressUI() {
+      const answeredIds = Object.keys(userAnswers);
+      const answeredCount = answeredIds.length;
+      const rightCount = answeredIds.filter(id => userAnswers[id].isCorrect).length;
+      const pct = Math.round((answeredCount / 40) * 100);
+
+      document.getElementById('scoreCounterText').innerText = `Đúng: ${rightCount}/40 (${answeredCount} đã làm)`;
+      document.getElementById('progressPercentText').innerText = `${pct}%`;
+      document.getElementById('progressBarFill').style.width = `${pct}%`;
+    }
+
+    // Countdown Timer (20:00)
+    let remainingSeconds = 20 * 60;
+    let timerHandle = null;
+    let timerActive = false;
+
+    function formatClock(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    function toggleTimer() {
+      const btn = document.getElementById('timerBtn');
+      if (timerActive) {
+        clearInterval(timerHandle);
+        timerActive = false;
+        btn.innerText = "▶ TIẾP TỤC TÍNH GIỜ";
+      } else {
+        initAudio();
+        timerActive = true;
+        btn.innerText = "⏸ TẠM DỪNG";
+        timerHandle = setInterval(() => {
+          if (remainingSeconds > 0) {
+            remainingSeconds--;
+            document.getElementById('timerText').innerText = formatClock(remainingSeconds);
+          } else {
+            clearInterval(timerHandle);
+            timerActive = false;
+            isLocked = true;
+            document.getElementById('timeUpModal').classList.remove('hidden');
+          }
+        }, 1000);
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerHandle);
+      timerActive = false;
+      isLocked = false;
+      remainingSeconds = 20 * 60;
+      document.getElementById('timerText').innerText = "20:00";
+      document.getElementById('timerBtn').innerText = "▶ BẮT ĐẦU TÍNH GIỜ LÀM BÀI";
+    }
+
+    // Pastel Purple Selection Highlight
+    function toggleHighlightMode() {
+      isHighlightEnabled = !isHighlightEnabled;
+      const btn = document.getElementById('highlightBtn');
+      if (isHighlightEnabled) {
+        btn.innerHTML = `<i class="fa-solid fa-highlighter mr-1"></i> Highlight: BẬT`;
+        btn.className = "btn-3d px-3 py-1.5 text-xs font-black rounded-xl bg-purple-100 text-purple-800 border border-purple-300 shadow-[0_3px_0_#c084fc]";
+      } else {
+        btn.innerHTML = `<i class="fa-solid fa-highlighter mr-1"></i> Highlight: TẮT`;
+        btn.className = "btn-3d px-3 py-1.5 text-xs font-black rounded-xl bg-slate-100 text-slate-500 border border-slate-300";
+      }
+    }
+
+    document.addEventListener('mouseup', () => {
+      if (!isHighlightEnabled) return;
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
+      const text = sel.toString().trim();
+      if (text.length < 2) return;
+
+      const range = sel.getRangeAt(0);
+      const rPane = document.getElementById('readingPane');
+      const ePane = document.getElementById('exercisePane');
+      if ((rPane && rPane.contains(range.commonAncestorContainer)) || (ePane && ePane.contains(range.commonAncestorContainer))) {
+        try {
+          const span = document.createElement('span');
+          span.className = 'pastel-highlight';
+          span.title = 'Click để xóa highlight';
+          span.onclick = function(e) {
+            e.stopPropagation();
+            const parent = this.parentNode;
+            while (this.firstChild) parent.insertBefore(this.firstChild, this);
+            parent.removeChild(this);
+          };
+          range.surroundContents(span);
+          sel.removeAllRanges();
+        } catch (err) {}
+      }
+    });
+
+    // Official IELTS Academic Reading 40-Question Band Conversion
+    function getIeltsBand(score) {
+      if (score >= 39) return "9.0";
+      if (score >= 37) return "8.5";
+      if (score >= 35) return "8.0";
+      if (score >= 33) return "7.5";
+      if (score >= 30) return "7.0";
+      if (score >= 27) return "6.5";
+      if (score >= 23) return "6.0";
+      if (score >= 20) return "5.5";
+      if (score >= 16) return "5.0";
+      if (score >= 13) return "4.5";
+      if (score >= 10) return "4.0";
+      if (score >= 7)  return "3.5";
+      if (score >= 5)  return "3.0";
+      if (score >= 3)  return "2.5";
+      return "2.0";
+    }
+
+    function openSubmitModal() {
+      const answeredIds = Object.keys(userAnswers);
+      const rightCount = answeredIds.filter(id => userAnswers[id].isCorrect).length;
+      const pct = Math.round((rightCount / 40) * 100);
+      const band = getIeltsBand(rightCount);
+
+      document.getElementById('finalCorrectCount').innerText = `${rightCount} / 40`;
+      document.getElementById('finalPercent').innerText = `${pct}%`;
+      document.getElementById('finalBandScore').innerText = `Band ${band}`;
+
+      let msg = "";
+      if (pct < 50) {
+        msg = "“Điểm lần này chưa cao lắm, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!”";
+      } else if (pct <= 85) {
+        msg = "“Con đã có tiến bộ khá ổn rồi, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!”";
+      } else {
+        msg = "“Làm tốt lắm, con cố gắng ring điểm 10 ở lần sau nha!”";
+      }
+      document.getElementById('finalTeacherMsg').innerText = msg;
+      document.getElementById('submitModal').classList.remove('hidden');
+
+      playCorrectSound();
+      fireConfetti();
+    }
+
+    function closeSubmitModal() {
+      document.getElementById('submitModal').classList.add('hidden');
+    }
+
+    // Initialize on load
+    window.onload = function() {
+      switchPassage(1);
+      updateProgressUI();
+    };
+  </script>
+</body>
+</html>
